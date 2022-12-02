@@ -1,11 +1,31 @@
 const { User, Stock, StockEntry } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
-const { GraphQLError } = require('grapgql'); // for custom error handling
+const { GraphQLError } = require('graphql'); // for custom error handling
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    
+    // querying users
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('portfolio');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('portfolio');
+    },
+
+    // querying stocks
+    stocks: async () => {
+      return Stock.find()
+        .select('-__v');
+    },
+    stock: async (parent, { stockId }) => {
+      return Stock.findOne({ _id: stockId })
+        .select('-__v');
+    }
   },
 
   Mutation: {
@@ -43,25 +63,25 @@ const resolvers = {
     // should add admin authentication to these features . . . 
     addStock: async (parent, args) => {
       const stock = await Stock.create(args);
-      return { stock };
+      return stock;
     },
     removeStock: async (parent, { stockId }) => {
-      const deletedStock = Stock.findOneAndDelete(
+      const deletedStock = await Stock.findOneAndDelete(
         { _id: stockId },
         { new: true }
       );
       
-      if (!deletedStock) {
-        // throw a custom GraphQL error if the stock cannot be found
-        // code 404 is just a returned string; can be anything
-        throw new GraphQLError('No stock found!', {
-          extensions: {
-            code: '404',
-          },
-        });
+      if (deletedStock) {
+        return deletedStock
       }
 
-      return deletedStock;
+      // throw a custom GraphQL error if the stock cannot be found
+      // code 404 is just a returned string; can be anything
+      throw new GraphQLError('No stock found!', {
+        extensions: {
+          code: '404',
+        },
+      });
     }
   }
 }

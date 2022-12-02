@@ -29,7 +29,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     stocks: [Stock]
-    stock(_id: ID!): Stock
+    stock(stockId: ID!): Stock
   }
 
   type Auth {
