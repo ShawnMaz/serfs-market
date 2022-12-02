@@ -219,11 +219,29 @@ const resolvers = {
       );
       
       if (deletedStock) {
-        return deletedStock
+        return deletedStock;
       }
 
       // throw a custom GraphQL error if the stock cannot be found
       // code: 404 is just a returned string; can be anything
+      throw new GraphQLError('No stock found!', {
+        extensions: {
+          code: '404',
+        },
+      });
+    },
+    updateStock: async (parent, { stockId, newPrice }) => {
+      const updatedStock = await Stock.findOneAndUpdate(
+        { _id: stockId },
+        { stockPrice: newPrice },
+        { new: true }
+      );
+
+      if (updatedStock) {
+        return updatedStock;
+      }
+
+      // throw error if no stock found
       throw new GraphQLError('No stock found!', {
         extensions: {
           code: '404',

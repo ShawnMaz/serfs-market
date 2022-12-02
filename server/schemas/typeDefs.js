@@ -48,6 +48,7 @@ const typeDefs = gql`
     # for managing which stocks are stored on the server
     addStock(stockName: String!, stockDescription: String!, stockPrice: Float!): Stock
     removeStock(stockId: ID!): Stock
+    updateStock(stockId: ID!, newPrice: Float!): Stock
   }
 `;
 
