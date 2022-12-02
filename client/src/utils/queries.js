@@ -26,5 +26,14 @@ export const QUERY_STOCK = gql`
   }
 `;
 
+export const QUERY_STOCKS = gql`
+  stock(_id: $id){
+      _id
+      stockName
+      stockDescription
+      stockPrice
+    }
+  }
+`;
 
 
