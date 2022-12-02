@@ -43,3 +43,5 @@ const typeDefs = gql`
     sellStock(stockId: ID!, qty: Int!): User
   }
 `;
+
+module.exports = typeDefs;
