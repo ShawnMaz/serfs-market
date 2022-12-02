@@ -38,8 +38,10 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    # managing user accounts
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    removeUser(username: String!, password: String!): User
     # users buying / selling stocks with Stock Entries
     buyStock(stockId: ID!, qty: Int!): User
     sellStock(stockId: ID!, qty: Int!): User

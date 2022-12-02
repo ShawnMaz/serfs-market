@@ -29,7 +29,7 @@ const resolvers = {
   },
 
   Mutation: {
-    // managing creating users / logging them in
+    // managing creating + deleting users / logging them in
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
@@ -49,11 +49,95 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    removeUser: async (parent, { username, password }, context) => {
+      if (context.user) {
+        const user = await User.findOne({ username: username });
+        if (!user) {
+          throw new AuthenticationError('Incorrect credentials!');
+        }
+
+        const correctPw = await user.isCorrectPassword(password);
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials!');
+        }
+
+        // now delete this user if auth passed
+        const deletedUser = await User.findOneAndDelete({ username: username }, { new: true });
+        return deletedUser;
+      }
+
+      // throw auth error if not logged in to delete
+      throw new AuthenticationError('Please log in!');
+    },
 
     // users managing their stocks
-    buyStock: async (parent, args, context) => {
+    buyStock: async (parent, { stockId, qty }, context) => {
       if (context.user) {
-        return "You are in!";
+        // does user have enough money for this transaction?
+        const user = await User.findOne({ _id: context.user._id });
+        const stock = await Stock.findOne({ _id: stockId });
+
+        // throw error if user or stock cannot be found
+        if (!user || !stock) {
+          throw new GraphQLError('User or stock not found!', {
+            extensions: {
+              code: '404',
+            },
+          }); 
+        }
+
+        // calculate amount to be spent in this transaction
+        const toSpend = stock.stockPrice * qty;
+        const spent = user.money - toSpend;
+
+        // throw error if user does not have enough money
+        if (toSpend > user.money) {
+          throw new GraphQLError('User does not have enough cash!', {
+            extensions: {
+              code: 'BROKE',
+            },
+          });
+        }
+
+        // does the user already have this stock entry?
+        const userStocks = user.portfolio;
+        let stockEntry;
+        let newStockEntry;
+        userStocks.forEach(entry => {
+          if (entry.stockId.equals(stockId)) {
+            stockEntry = entry;
+          }
+        });
+
+        if (!stockEntry) {
+          // define our new stock entry if one does not exist already
+          newStockEntry = {
+            stockId: stockId,
+            quantity: qty
+          }
+          // add it to our user's portfolio and subtract from their cash
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { portfolio: newStockEntry }, money: spent },
+            { new: true }
+          ).populate('portfolio');
+          return updatedUser;
+        } else {
+          // otherwise update our existing entry
+          stockEntry.quantity = stockEntry.quantity += qty;
+          // subtract from our user's cash
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            {
+              $set: {
+                portfolio: userStocks
+              },
+              money: spent
+            },
+            { new: true }
+          ).populate('portfolio');
+          return updatedUser;
+        }
       }
 
       throw new AuthenticationError('Please log in!');
@@ -76,7 +160,7 @@ const resolvers = {
       }
 
       // throw a custom GraphQL error if the stock cannot be found
-      // code 404 is just a returned string; can be anything
+      // code: 404 is just a returned string; can be anything
       throw new GraphQLError('No stock found!', {
         extensions: {
           code: '404',

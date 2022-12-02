@@ -24,6 +24,7 @@ const userSchema = new Schema(
         money:{
             type: Number,
             required: true,
+            default: 1000.00
         },
         portfolio:[stockEntrySchema]
     }
