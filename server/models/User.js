@@ -22,7 +22,7 @@ const userSchema = new Schema(
             minLength:8
         },
         money:{
-            type: Float,
+            type: Number,
             required: true,
         },
         portfolio:[stockEntrySchema]
