@@ -8,6 +8,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    money: Float
     portfolio: [StockEntry]
   }
 
@@ -39,8 +40,12 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    # users buying / selling stocks with Stock Entries
     buyStock(stockId: ID!, qty: Int!): User
     sellStock(stockId: ID!, qty: Int!): User
+    # for managing which stocks are stored on the server
+    addStock(stockName: String!, stockDescription: String!, stockPrice: Float!): Stock
+    removeStock(stockId: ID!): [Stock]
   }
 `;
 
