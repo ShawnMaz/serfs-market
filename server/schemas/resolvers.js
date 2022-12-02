@@ -28,6 +28,14 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+    buyStock: async (parent, args, context) => {
+      if (context.user) {
+        return "You are in!";
+      }
+
+      throw new AuthenticationError('Please log in!');
+    }
   }
 }
 
