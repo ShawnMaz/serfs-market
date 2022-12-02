@@ -45,7 +45,7 @@ const typeDefs = gql`
     sellStock(stockId: ID!, qty: Int!): User
     # for managing which stocks are stored on the server
     addStock(stockName: String!, stockDescription: String!, stockPrice: Float!): Stock
-    removeStock(stockId: ID!): [Stock]
+    removeStock(stockId: ID!): Stock
   }
 `;
 
