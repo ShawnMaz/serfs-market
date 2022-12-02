@@ -140,6 +140,69 @@ const resolvers = {
         }
       }
 
+      // else throw auth error
+      throw new AuthenticationError('Please log in!');
+    },
+    sellStock: async (parent, { stockId, qty }, context) => {
+      if (context.user) {
+        // get our stock and user
+        const user = await User.findOne({ _id: context.user._id });
+        const stock = await Stock.findOne({ _id: stockId });
+
+        // throw error if user or stock cannot be found
+        if (!user || !stock) {
+          throw new GraphQLError('User or stock not found!', {
+            extensions: {
+              code: '404',
+            },
+          }); 
+        }
+
+        // does the user have this stock entry?
+        const userStocks = user.portfolio;
+        let stockEntry;
+        userStocks.forEach(entry => {
+          if (entry.stockId.equals(stockId)) {
+            stockEntry = entry;
+          }
+        });
+
+        // throw error if they do not
+        if (!stockEntry || qty > stockEntry.quantity) {
+          throw new GraphQLError('User does not own that many stocks!', {
+            extensions: {
+              code: 'NO_INVESTMENT'
+            },
+          });
+        } else { // if all is good, progress to calculation
+          // calculate amount to be earned in this transaction
+          const toEarn = stock.stockPrice * qty;
+          const totalAmount = user.money += toEarn;
+
+          // update our entry
+          stockEntry.quantity = stockEntry.quantity -= qty;
+          // delete entry if quantity is 0 or less (shouldn't be less though)
+          if (stockEntry.quantity < 1) {
+            const index = userStocks.indexOf(stockEntry);
+            userStocks.splice(index, 1);
+          }
+
+          // add to our user's cash
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            {
+              $set: {
+                portfolio: userStocks
+              },
+              money: totalAmount
+            },
+            { new: true }
+          ).populate('portfolio');
+          return updatedUser;
+        }
+      }
+
+      // else throw auth error
       throw new AuthenticationError('Please log in!');
     },
 
