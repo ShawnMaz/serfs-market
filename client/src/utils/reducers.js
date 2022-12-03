@@ -37,3 +37,7 @@ export const reducer = (state, action) => {
             return state;
     }
 }
+
+export function useStockReducer(initialState) {
+    return useReducer(reducer, initialState);
+  }
