@@ -84,10 +84,10 @@ async function triggerEvent() {
 // assign functions to our custom intervalTimer function
 // wrap in a new function so it can be exported
 function updateStock() {
-  intervalTimer(randomizeStock, 1000 * 10);
+  intervalTimer(randomizeStock, 1000 * 60 * 5);
 }
 function updateEvent() {
-  intervalTimer(triggerEvent, 1000 * 60 * 1);
+  intervalTimer(triggerEvent, 1000 * 60 * 30);
 }
 
 module.exports = { updateStock, updateEvent };
