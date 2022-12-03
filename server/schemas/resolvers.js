@@ -7,23 +7,23 @@ const resolvers = {
   Query: {
     // querying users
     users: async () => {
-      return User.find()
+      return await User.find()
         .select('-__v -password')
         .populate('portfolio');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username })
+      return await User.findOne({ username })
         .select('-__v -password')
         .populate('portfolio');
     },
 
     // querying stocks
     stocks: async () => {
-      return Stock.find()
+      return await Stock.find()
         .select('-__v');
     },
     stock: async (parent, { stockId }) => {
-      return Stock.findOne({ _id: stockId })
+      return await Stock.findOne({ _id: stockId })
         .select('-__v');
     }
   },
@@ -87,7 +87,7 @@ const resolvers = {
         }
 
         // calculate amount to be spent in this transaction
-        const toSpend = stock.stockPrice * qty;
+        const toSpend = (stock.stockPrice * stock.multiplier) * qty;
         const spent = user.money - toSpend;
 
         // throw error if user does not have enough money
@@ -176,7 +176,7 @@ const resolvers = {
           });
         } else { // if all is good, progress to calculation
           // calculate amount to be earned in this transaction
-          const toEarn = stock.stockPrice * qty;
+          const toEarn = (stock.stockPrice * stock.multiplier) * qty;
           const totalAmount = user.money += toEarn;
 
           // update our entry

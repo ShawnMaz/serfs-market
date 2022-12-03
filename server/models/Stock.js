@@ -17,6 +17,12 @@ const stockSchema = new Schema(
         stockPrice:{
             type:Number,
             required:true
+        },
+        // multiplier for events
+        multiplier:{
+            type:Number,
+            required:true,
+            default:1
         }
     }
 );
