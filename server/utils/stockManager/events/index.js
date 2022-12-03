@@ -5,15 +5,61 @@ const { Stock } = require('../../../models');
 // wartime event
 async function warTrigger() {
   // fetch our stocks
-  const stocks = await Stock.find().select('-__v');
+  const stocks = await Stock.find({ stockCategory: 'weaponry' }).select('-__v');
 
-  // how many stocks are we modifying?
+  // display that an event has been triggered
+  console.log("War amongst the kingdoms is anticipated; The value of weaponry has skyrocketed!");
+  // calculate a multiplier
+  const multiplier = Math.round((Math.random() * 3) + 2);
 
+  // update our stock multipliers
+  for (const stock of stocks) {
+    const updatedStock = await Stock.findOneAndUpdate(
+      { _id: stock._id },
+      { multiplier: multiplier },
+      { new: true }
+    );
+  }
 }
 
 // famine event
-async function famine() {
-  const stocks = await Stock.find().select('-__v');
+async function famineTrigger() {
+  // fetch our stocks
+  const stocks = await Stock.find({ stockCategory: 'food' }).select('-__v');
+
+  // display that an event has triggered
+  console.log("Famine has struck the lands; the value of food has skyrocketed!");
+  // calculate a multiplier
+  const multiplier = Math.round((Math.random() * 3 + 2));
+
+  // update our stock multipliers
+  for (const stock of stocks) {
+    const updatedStock = await Stock.findOneAndUpdate(
+      { _id: stock._id },
+      { multiplier: multiplier },
+      { new: true }
+    );
+  }
 }
 
-module.exports = { warTrigger };
+// prosperity event
+async function prosperityTrigger() {
+  // fetch our stocks
+  const stocks = await Stock.find({ stockCategory: 'luxury' }).select('-__v');
+
+  // display that an event has triggered
+  console.log("The kingdom prospers; the value of luxury goods has skyrocketed!");
+  // calculate a multiplier
+  const multiplier = Math.round((Math.random() * 3 + 2));
+
+  // update our stock multipliers
+  for (const stock of stocks) {
+    const updatedStock = await Stock.findOneAndUpdate(
+      { _id: stock._id },
+      { multiplier: multiplier },
+      { new: true }
+    );
+  }
+}
+
+module.exports = [ warTrigger, famineTrigger, prosperityTrigger ];

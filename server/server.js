@@ -7,7 +7,7 @@ const {typeDefs, resolvers} = require('./schemas');
 const {authMiddleware} = require('./utils/auth');
 const path = require('path');
 // import our backend stock manager
-const { updateStock } = require('./utils/stockManager');
+const { updateStock, updateEvent } = require('./utils/stockManager');
 
 const PORT = process.env.PORT || 3001;
 
@@ -46,6 +46,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
       console.log(`API server running on port ${PORT} at ${server.graphqlPath}!`);
       // once our db is open and our app is listening, run our backend stockManager func
       updateStock();
+      updateEvent();
     });
   });
 };

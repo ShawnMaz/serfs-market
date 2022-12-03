@@ -22,7 +22,9 @@ const typeDefs = gql`
     _id: ID
     stockName: String
     stockDescription: String
+    stockCategory: String
     stockPrice: Float
+    multiplier: Float
   }
 
   type Query {
@@ -46,7 +48,7 @@ const typeDefs = gql`
     buyStock(stockId: ID!, qty: Int!): User
     sellStock(stockId: ID!, qty: Int!): User
     # for managing which stocks are stored on the server
-    addStock(stockName: String!, stockDescription: String!, stockPrice: Float!): Stock
+    addStock(stockName: String!, stockDescription: String!, stockCategory: String!, stockPrice: Float!): Stock
     removeStock(stockId: ID!): Stock
     updateStock(stockId: ID!, newPrice: Float!): Stock
   }

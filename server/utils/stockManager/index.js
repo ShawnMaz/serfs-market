@@ -2,7 +2,11 @@
 // import our models
 const { Stock } = require('../../models');
 // import our events
-const events = require('./events');
+const events = require('./events'); // loaded as array
+// global variable that stores likelihood of an event triggering
+// if event func rolls below this, trigger an event
+// otherwise increase this value by 5
+let eventChance = 5;
 
 // write a more accurate setInterval function
 function intervalTimer(callback, interval = 1000) { // 1 second default
@@ -47,19 +51,43 @@ async function randomizeStock() {
       { stockPrice: newPrice },
       { new: true }
     );
-    console.log(updatedStock);
   }
 }
 
 // secondary function, responsible for managing special events every half hour
 async function triggerEvent() {
+  // fetch our stocks from db
+  const stocks = await Stock.find().select('-__v');
 
+  // reset each stock's modifier
+  for (const stock of stocks) {
+    const updatedStock = await Stock.findOneAndUpdate(
+      { _id: stock._id },
+      { multiplier: 1 },
+      { new: true }
+    );
+  }
+
+  // do our event roll
+  const rollEvent = Math.random() * 100;
+  if (rollEvent < eventChance) {
+    // our event has triggered
+    // now randomly select one from the list
+    const eventIndex = Math.floor(Math.random() * events.length);
+    const event = events[eventIndex]; // select our event
+    event(); // call it
+  } else {
+    eventChance += 5; // otherwise increase the odds of an event triggering next time
+  }
 }
 
-// assign this function to our custom intervalTimer function
+// assign functions to our custom intervalTimer function
 // wrap in a new function so it can be exported
 function updateStock() {
-  intervalTimer(randomizeStock, 1000 * 60 * 10);
+  intervalTimer(randomizeStock, 1000 * 10);
+}
+function updateEvent() {
+  intervalTimer(triggerEvent, 1000 * 60 * 1);
 }
 
-module.exports = { updateStock };
+module.exports = { updateStock, updateEvent };
