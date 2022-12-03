@@ -5,14 +5,20 @@ const stockSchema = new Schema(
         stockName:{
             type:String,
             required:true,
-            minlegth:1,
-            maxlength:30            
+            minLength:1,
+            maxLength:30            
         },
         stockDescription:{
             type:String,
             required:true,
-            minlegth:1,
-            maxlength:300
+            minLength:1,
+            maxLength:300
+        },
+        stockCategory:{
+            type:String,
+            required:true,
+            minLength:1,
+            maxLength:300
         },
         stockPrice:{
             type:Number,

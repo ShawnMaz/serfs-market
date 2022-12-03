@@ -2,7 +2,7 @@
 // import our models
 const { Stock } = require('../../models');
 // import our events
-const events = require('./events/events.json'); // stored as array
+const events = require('./events');
 
 // write a more accurate setInterval function
 function intervalTimer(callback, interval = 1000) { // 1 second default
@@ -34,7 +34,7 @@ async function randomizeStock() {
   // loop over each stock and modify their price
   for (const stock of stocks) { // this format allows using async
     // generate a random amount to change it by
-    const change = (Math.random() * 60) - 30; // positive and negative values
+    const change = (Math.random() * 18) - 9; // positive and negative values
     let newPrice = Math.round(stock.stockPrice + change);
      // clamp to a minimum price of 1
     if (newPrice < 0 ) {
@@ -53,7 +53,7 @@ async function randomizeStock() {
 
 // secondary function, responsible for managing special events every half hour
 async function triggerEvent() {
-  
+
 }
 
 // assign this function to our custom intervalTimer function
