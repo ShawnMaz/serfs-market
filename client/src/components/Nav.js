@@ -49,7 +49,7 @@ const Nav = () => {
         <header className="flex-row px-1">
           <h1>
             <Link to="/">
-              <span role="img" aria-label="castle">🏰</span>
+              {/* <span role="img" aria-label="castle">🏰</span> */}
               The Serf's Market
             </Link>
           </h1>

@@ -61,3 +61,10 @@ nav li {
   flex: 50%;
   padding: 0 4px;
  } */
+
+ footer {
+  display: flex;
+  justify-items: center;
+  font-family: 'Carrois Gothic', sans-serif;
+  font-size: 14px;
+ }
