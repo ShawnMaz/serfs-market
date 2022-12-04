@@ -7,7 +7,7 @@ const Footer = () => {
         🏰
       </span>
       <div>
-        Created By The Serfs | &copy;2022 | All rights reserved
+        Created By 6ixSerfs | &copy;2022 | All rights reserved
       </div>
     </footer>
   );

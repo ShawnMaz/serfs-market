@@ -8,8 +8,8 @@ const About = () => {
                 <h2>
                     The Serf’s Market - A Medieval Stock Exchange
                 </h2>
-                    <div className="row">
-                        <div className="column">
+                    <div className='row' id='peasantsToil'>
+                        <div className='column'>
                         <span role='img' aria-label='market'>
                             <img src={peasants} style={{ width: '35%'}} alt='Peasants at the market.' />
                         </span>

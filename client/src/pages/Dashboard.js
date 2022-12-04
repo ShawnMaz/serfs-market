@@ -25,7 +25,7 @@ const Dashboard = () => {
     return (
         <section>
             <div>
-                <span role='img' aria-label='market'>
+                <span role='img' aria-label='serfsLogo'>
                     <img src={serfsLogo} style={{ width: '25%'}} alt='Shield' />
                 </span>
             </div>

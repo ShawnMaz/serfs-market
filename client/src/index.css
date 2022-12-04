@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
 
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   font-family: 'MedievalSharp', cursive;
@@ -14,34 +19,40 @@ body {
 p {
   font-family: 'Carrois Gothic', sans-serif;
   font-size: 18px;
+  margin: 10px;
+  padding: 20px;
+  border: 10px;
+  
 }
 
 code {
   font-family: 'MedievalSharp', cursive;
-
 }
 
 nav {
   display: flex;
+  float: right;
   flex-wrap: wrap;
   align-items:center;
   justify-content: space-around;
-  padding: 10px;
+  padding: 0 10px;
   margin: 10px;
   position: --webkit-sticky;
   position: sticky;
   z-index: 9999;
   border: 10px;
+  font-size: 22px;
 }
 
 nav a:hover {
   color: #D21404;
+  text-decoration: none;
 }
 
 nav li {
   display: inline;
   flex-wrap: wrap;
-  align-items:center;
+  align-items: center;
   justify-content: space-around;
   padding: 10px;
   margin: 10px;
@@ -49,8 +60,37 @@ nav li {
   position: sticky;
   z-index: 9999;
   border: 10px;
+  cursor: pointer;
  }
- 
+
+ button {
+  background-color: #723922;
+    color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'MedievalSharp', cursive;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 5px;
+  border: dashed;
+ }
+
+ .form-input {
+  padding: 15px 32px;
+  border-radius: 8px;
+  background-color: #fffAf1;
+  margin: 2px;
+ }
+
+ #peasantsToil img {
+  float: left;
+  padding: 20px;
+  border-radius: 8px;
+ }
+
  /* .row {
   display: flex;
   flex-wrap: wrap;
@@ -67,4 +107,5 @@ nav li {
   justify-items: center;
   font-family: 'Carrois Gothic', sans-serif;
   font-size: 14px;
+  padding: 5px;
  }

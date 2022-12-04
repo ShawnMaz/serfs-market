@@ -10,7 +10,10 @@ const Home = () => {
 
 
   return (
-    <main>
+    <main className='home'>
+      <h2>
+        The Serf’s Market - A Medieval Stock Exchange
+      </h2>
       <span role='img' aria-label='market'>
         <img src={market} style={{ width: '50%'}} alt='Peasants at the market.' />
       </span>
