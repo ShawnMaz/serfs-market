@@ -4,6 +4,7 @@ import News from '../components/News';
 import { useStockContext } from '../utils/GlobalState';
 import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 import serfsLogo from '../assets/images/serfsLogo.jpg';
+import scroll from '../assets/images/scroll.jpg';
 
 const Dashboard = () => {
 
@@ -24,9 +25,9 @@ const Dashboard = () => {
     return (
         <section>
             <div>
-            <span role='img' aria-label='market'>
-                            <img src={serfsLogo} style={{ width: '25%'}} alt='Shield' />
-            </span>
+                <span role='img' aria-label='market'>
+                    <img src={serfsLogo} style={{ width: '25%'}} alt='Shield' />
+                </span>
             </div>
             <div>
                 <h2>
@@ -62,6 +63,10 @@ const Dashboard = () => {
                 <h2>
                     Serf’s News
                 </h2>
+                    <span role='img' aria-label='market'>
+                        <img src={scroll} style={{ width: '25%'}} alt='Old yellow scroll paper.' />
+                    </span>
+
                 <News />
             </div>
 
