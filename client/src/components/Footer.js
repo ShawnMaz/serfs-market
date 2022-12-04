@@ -3,7 +3,8 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer >
-      <div >this is the footer</div>
+       <span role="img" aria-label="castle">🏰</span>
+      <div> Created by </div>
     </footer>
   );
 };

@@ -50,7 +50,7 @@ const Nav = () => {
           <h1>
             <Link to="/">
               <span role="img" aria-label="castle">🏰</span>
-              Medieval Market
+              The Serf's Market
             </Link>
           </h1>
     

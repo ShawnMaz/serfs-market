@@ -16,14 +16,14 @@ p {
 }
 
 code {
-    font-family: 'MedievalSharp', cursive;
+  font-family: 'MedievalSharp', cursive;
 
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
-  /* align-items:center; */
+  align-items:center;
   justify-content: space-around;
   padding: 10px;
   margin: 10px;
@@ -31,9 +31,21 @@ nav {
   position: sticky;
   z-index: 9999;
   border: 10px;
-
 }
 
 nav a:hover {
   color: #D21404;
 }
+
+nav li {
+  display: inline;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px;
+  position: --webkit-sticky;
+  position: sticky;
+  z-index: 9999;
+  border: 10px;
+ }
