@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
+import { StockProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -37,6 +38,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <StockProvider>
           <Nav />
           <div>
             <Routes>
@@ -46,6 +48,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
+          </StockProvider>
         </div>
       </Router>
     </ApolloProvider>

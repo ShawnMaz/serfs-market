@@ -6,9 +6,31 @@ const { Provider } = StockContext;
 
 const StockProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useStockReducer({
-    stocks: [],
+    stocks: [
+        {
+            _id: '1',
+            stockName: 'Wine',
+            stockCategories: 'Luxury',
+            stockPrice: 1
+        },
+        {
+            _id: '2',
+            stockName: 'Sword',
+            stockCategories: 'Weapons',
+            stockPrice: 2
+        }
+    ],
     event: [],
-    stockEntry: [],
+    stockEntry: [
+        {
+            stockId: '1',
+            quantity: 2
+        },
+        {
+            stockId: '2',
+            quantity: 1
+        }
+    ],
   });
 
   console.log(state);

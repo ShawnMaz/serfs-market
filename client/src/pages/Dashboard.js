@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Auth from '../utils/auth';
 import News from '../components/News';
-
+import { useStockContext } from '../utils/GlobalState';
+import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 const Dashboard = () => {
 
+    const [state, dispatch] = useStockContext();
 
+    const { stocks, stockEntry } = state;
+
+    const buyStock = stockId => {
+   
+            dispatch ({
+                type: UPDATE_STOCK_ENTRY,
+                stockId: stockId,
+                quantity: parseInt(stockEntry.quantity) + 1
+            })
+        }
     
+
     return (
         <section>
             <div>
@@ -27,7 +40,18 @@ const Dashboard = () => {
                 </h2>
 
                 <div>
-                    my portfolio
+                    <ul>
+                        {stockEntry.map((eachStock) => (
+                            <li 
+                                key={eachStock.stockId}
+                            >
+                                {eachStock.quantity}
+                                <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
+                            </li>
+
+                        ))}
+                    </ul>
+
                 </div>
             </div>
             <div>
