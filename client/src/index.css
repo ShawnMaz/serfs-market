@@ -13,6 +13,7 @@ body {
 
 p {
   font-family: 'Carrois Gothic', sans-serif;
+  font-size: 18px;
 }
 
 code {
@@ -49,3 +50,14 @@ nav li {
   z-index: 9999;
   border: 10px;
  }
+ 
+ /* .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+ }
+
+ .column {
+  flex: 50%;
+  padding: 0 4px;
+ } */

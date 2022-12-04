@@ -11,9 +11,6 @@ const Home = () => {
 
   return (
     <main>
-      <div>
-        <img src='' alt='logo' />
-      </div>
       <span role='img' aria-label='market'>
         <img src={market} style={{ width: '50%'}} alt='Peasants at the market.' />
       </span>
