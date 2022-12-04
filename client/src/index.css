@@ -1,13 +1,39 @@
-/* body {
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
+
+body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'MedievalSharp', cursive;
+  color: #723922;  
+  background-color: #E5E4DC; 
+  padding: 10px;
+  margin: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  font-family: 'Carrois Gothic', sans-serif;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+    font-family: 'MedievalSharp', cursive;
+
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items:center; */
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px;
+  position: --webkit-sticky;
+  position: sticky;
+  z-index: 9999;
+  border: 10px;
+
+}
+
+nav a:hover {
+  color: #D21404;
+}
