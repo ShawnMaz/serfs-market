@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 
-const MyProtfolio= () => {
+const MyPortfolio= () => {
 
     const { loading, data } = useQuery(QUERY_USER)
     const profile = data?.user || [];
@@ -28,4 +28,4 @@ return (
 )
 }
 
-export default MyProtfolio;
+export default MyPortfolio;
