@@ -12,6 +12,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "seed": "node seeders/seed.js"
+    "seed": "node seeders/seed.js",
+    "wipe-users": "node seeders/dumpUsers.js"
   }
 }

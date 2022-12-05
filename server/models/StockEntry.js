@@ -6,7 +6,6 @@ const stockEntrySchema = new Schema(
             type:Schema.Types.ObjectId,
             ref:'Stock',
             required:true,
-            unique:true
         },
         quantity:{
             type: Number,

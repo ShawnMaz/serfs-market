@@ -40,7 +40,7 @@ async function randomizeStock() {
     // generate a random amount to change it by
     const change = (Math.random() * 18) - 9; // positive and negative values
     let newPrice = Math.round(stock.stockPrice + change);
-     // clamp to a minimum price of 1
+    // clamp to a minimum price of 1
     if (newPrice < 0 ) {
       newPrice = 1;
     }
