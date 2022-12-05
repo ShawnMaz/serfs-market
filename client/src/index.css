@@ -29,8 +29,19 @@ code {
   font-family: 'MedievalSharp', cursive;
 }
 
-title {
+header {
   color:#723922; 
+  display: flex;
+  float: top;
+  justify-content: space-between;
+}
+
+header a {
+  color:#723922;
+}
+
+header a:hover {
+  color:#D21404;
 }
 
 nav {
@@ -40,7 +51,7 @@ nav {
   align-items:center;
   justify-content: space-around;
   padding: 0 10px;
-  margin: 10px;
+  margin: 5px;
   position: --webkit-sticky;
   position: sticky;
   z-index: 9999;
@@ -69,35 +80,42 @@ nav li {
   z-index: 9999;
   border: 10px;
   cursor: pointer;
- }
+}
 
- button {
-  background-color: #723922;
-    color: #fff;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-family: 'MedievalSharp', cursive;
-  font-weight: bold;
-  border-radius: 8px;
-  margin: 5px;
-  border: dashed;
- }
+button {
+background-color: #723922;
+color: #fff;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+font-family: 'MedievalSharp', cursive;
+font-weight: bold;
+border-radius: 8px;
+margin: 5px;
+border: dashed;
+}
 
- .form-input {
-  padding: 15px 32px;
-  border-radius: 8px;
-  background-color: #fffAf1;
-  margin: 2px;
- }
+.form-input {
+padding: 15px 32px;
+border-radius: 8px;
+background-color: #fffAf1;
+margin: 2px;
+}
 
- #peasantsToil img {
-  float: left;
-  padding: 20px;
-  border-radius: 8px;
- }
+#peasantsToil img {
+float: left;
+padding: 20px;
+border-radius: 8px;
+}
+
+#peasantsToil p {
+margin: 20px;
+padding: 20px;
+border: 20px;
+width: 100%;
+}
 
  /* .row {
   display: flex;
@@ -110,11 +128,11 @@ nav li {
   padding: 0 4px;
  } */
 
- footer {
-  display: flex;
-  justify-items: center;
-  font-family: 'Carrois Gothic', sans-serif;
-  font-size: 14px;
-  padding: 5px;
-  width: 100%;
- }
+footer {
+display: flex;
+justify-items: center;
+font-family: 'Carrois Gothic', sans-serif;
+font-size: 14px;
+padding: 5px;
+width: 100%;
+}
