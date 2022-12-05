@@ -6,7 +6,7 @@ import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 import serfsLogo from '../assets/images/serfsLogo.jpg';
 import scroll from '../assets/images/scroll.jpg';
 import ManageStocks from '../components/ManageStock';
-import MyProtfolio from '../components/MyStocks';
+import MyPortfolio from '../components/MyStocks';
 
 const Dashboard = () => {
 
@@ -52,7 +52,7 @@ const Dashboard = () => {
                     My Stocks
                 </h2>
 
-                <MyProtfolio />
+                <MyPortfolio />
 
                 <div>
                     <ul>
