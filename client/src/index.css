@@ -29,6 +29,10 @@ code {
   font-family: 'MedievalSharp', cursive;
 }
 
+title {
+  color:#723922; 
+}
+
 nav {
   display: flex;
   float: right;
@@ -42,6 +46,10 @@ nav {
   z-index: 9999;
   border: 10px;
   font-size: 22px;
+}
+
+nav a {
+  color: #723922;
 }
 
 nav a:hover {
@@ -108,4 +116,5 @@ nav li {
   font-family: 'Carrois Gothic', sans-serif;
   font-size: 14px;
   padding: 5px;
+  width: 100%;
  }

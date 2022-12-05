@@ -11,7 +11,7 @@ import MyPortfolio from '../components/MyStocks';
 const Dashboard = () => {
 
     const [state, dispatch] = useStockContext();
-
+    
     const { stocks, stockEntry } = state;
 
     const buyStock = stockId => {
@@ -29,9 +29,9 @@ const Dashboard = () => {
     }
     
 
-    if(loading) {
-        <h1>LOADING...</h1>
-    }
+    // if(loading) {
+    //     <h1>LOADING...</h1>
+    // }
     return (
         <section>
             <div>

@@ -28,7 +28,7 @@ return (
             </h2>
 
             <ul>
-                {listOfStocks.map((stock) => (
+                {allStocks.map((stock) => (
                     <li key={stock._id}>
                     {stock.name}
                     {stock.price}
