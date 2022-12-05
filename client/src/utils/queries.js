@@ -17,7 +17,7 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_STOCK = gql`
-  query_stock($id: ID!) {
+  query stock($id: ID!) {
     stock(_id: $id){
       _id
       stockName
@@ -28,13 +28,16 @@ export const QUERY_STOCK = gql`
 `;
 
 export const QUERY_STOCKS = gql`
-  stock(_id: $id){
+  {
+  stocks {
       _id
       stockName
       stockDescription
       stockPrice
+      multiplier
     }
   }
 `;
+
 
 

@@ -3,10 +3,17 @@ import { useQuery } from '@apollo/client';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import market from '../assets/images/market.jpg';
+import { QUERY_STOCKS } from '../utils/queries';
 
 
 const Home = () => {
+  const { loading, data } = useQuery(QUERY_STOCKS);
+  const stockData = data?.stocks || [];
 
+  console.log(stockData)
+  if (loading) {
+    return <h2>LOADING...</h2>
+  }
 
 
   return (
@@ -19,9 +26,15 @@ const Home = () => {
       </span>
       <div>
         Stock Status
-        <div>
-          pull current status and ranking the stock categories based on highest to lowest
-        </div>
+        <ul>
+          {stockData.map((stocks) => (
+            <li key={stocks._id}>
+              {stocks.stockName}<br/>
+              {stocks.stockPrice * stocks.multiplier} <br/>
+              {stocks.stockDescription}
+            </li>
+          ))}
+        </ul>
       </div>
       <div>
         <Login />

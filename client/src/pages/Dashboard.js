@@ -5,6 +5,8 @@ import { useStockContext } from '../utils/GlobalState';
 import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 import serfsLogo from '../assets/images/serfsLogo.jpg';
 import scroll from '../assets/images/scroll.jpg';
+import ManageStocks from '../components/ManageStock';
+import MyProtfolio from '../components/MyStocks';
 
 const Dashboard = () => {
 
@@ -13,15 +15,23 @@ const Dashboard = () => {
     const { stocks, stockEntry } = state;
 
     const buyStock = stockId => {
-   
+        const stock = stockEntry.find((choice) => choice.stockId === stockId)
+        if(stock){
             dispatch ({
                 type: UPDATE_STOCK_ENTRY,
                 stockId: stockId,
                 quantity: parseInt(stockEntry.quantity) + 1
             })
+
         }
+        console.log (parseInt(stockEntry[0].quantity) + 1)
+        console.log(stock)
+    }
     
 
+    if(loading) {
+        <h1>LOADING...</h1>
+    }
     return (
         <section>
             <div>
@@ -34,15 +44,15 @@ const Dashboard = () => {
                     My Gains
                 </h2>
 
-                <div>
-                    data on current stock price
-                </div>
+               <ManageStocks />
             </div>
             
             <div>
                 <h2>
                     My Stocks
                 </h2>
+
+                <MyProtfolio />
 
                 <div>
                     <ul>
