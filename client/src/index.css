@@ -97,6 +97,10 @@ margin: 5px;
 border: dashed;
 }
 
+#join {
+  background-color: #D21404;
+}
+
 .form-input {
 padding: 15px 32px;
 border-radius: 8px;

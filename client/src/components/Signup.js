@@ -69,8 +69,8 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
+              <button className='btn d-block w-100' type='submit' id='join'>
+                Join Now
               </button>
               {error && <div>Sign Up Failed</div>}
             </form>
