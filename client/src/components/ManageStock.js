@@ -8,10 +8,10 @@ const ManageStocks= () => {
     const { loading, data } = useQuery(QUERY_STOCKS)
     const allStocks = data?.stocks || [];
 
-    const [ puchaseStock ] = useMutation(BUY_STOCK)
+    const [ purchaseStock ] = useMutation(BUY_STOCK)
     const handleClick = async () => {
         try {
-          await puchaseStock({
+          await purchaseStock({
             variables: { id: allStocks._id }
           });
         } catch (e) {
