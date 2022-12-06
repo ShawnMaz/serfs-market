@@ -108,6 +108,12 @@ button {
   margin: 2px;
 }
 
+/* .marketPlace img {
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+} */
+
 #peasantsToil img {
 float: left;
 padding: 20px;
@@ -123,8 +129,19 @@ border-radius: 8px;
 
 #bowArrow img {
   float: right;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  margin: 20px;
   padding: 20px;
-  border-radius: px;
+  border: 20px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
 }
 
  /* .row {

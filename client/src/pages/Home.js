@@ -18,6 +18,7 @@ const Home = () => {
 
   return (
     <main className='home'>
+      <div className='marketPlace'>
       <h2>
         The Serf’s Market - A Medieval Stock Exchange
       </h2>
@@ -37,6 +38,7 @@ const Home = () => {
             </li>
           ))}
         </ul>
+      </div>
       </div>
       <div>
         <Signup />
