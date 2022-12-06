@@ -83,18 +83,18 @@ nav li {
 }
 
 button {
-background-color: #723922;
-color: #fff;
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-font-family: 'MedievalSharp', cursive;
-font-weight: bold;
-border-radius: 8px;
-margin: 5px;
-border: dashed;
+  background-color: #723922;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'MedievalSharp', cursive;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 5px;
+  border: dashed;
 }
 
 #join {
@@ -102,10 +102,10 @@ border: dashed;
 }
 
 .form-input {
-padding: 15px 32px;
-border-radius: 8px;
-background-color: #fffAf1;
-margin: 2px;
+  padding: 15px 32px;
+  border-radius: 8px;
+  background-color: #fffAf1;
+  margin: 2px;
 }
 
 #peasantsToil img {
@@ -115,10 +115,16 @@ border-radius: 8px;
 }
 
 #peasantsToil p {
-margin: 20px;
-padding: 20px;
-border: 20px;
-width: 100%;
+  margin: 20px;
+  padding: 20px;
+  border: 20px;
+  width: 100%;
+}
+
+#bowArrow img {
+  float: right;
+  padding: 20px;
+  border-radius: px;
 }
 
  /* .row {
@@ -133,10 +139,10 @@ width: 100%;
  } */
 
 footer {
-display: flex;
-justify-items: center;
-font-family: 'Carrois Gothic', sans-serif;
-font-size: 14px;
-padding: 5px;
-width: 100%;
+  display: flex;
+  justify-items: center;
+  font-family: 'Carrois Gothic', sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
 }

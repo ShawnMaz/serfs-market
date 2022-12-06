@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import arrow from '../assets/images/arrow.jpg';
+
 import '../index.css';
+
 
 const Login = () => {
     const [formState, setFormState] = useState({ email: '', password: '' });
@@ -43,7 +46,8 @@ const Login = () => {
         <main className='flex-row justify-center mb-4'>
           <div className='col-12 col-md-6'>
             <div className='card'>
-              <h4 className='card-header'>Login</h4>
+              <h2 className='card-header'>Login</h2>
+              
               <div className='card-body'>
                 <form onSubmit={handleFormSubmit}>
                   <input
@@ -69,6 +73,9 @@ const Login = () => {
                   </button>
                   {error && <div>Login failed</div>}
                 </form>
+                <span role='img' aria-label='bowArrow'>
+                  <img src={arrow} style={{ width: '45%'}} alt='A soldier defends the castle.' />
+                </span>
               </div>
             </div>
           </div>
