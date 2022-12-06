@@ -31,9 +31,17 @@ const Dashboard = () => {
     //     console.log(stock)
     // }
     
+    const { username: userParam } = useParams();
+    console.log(Auth.getProfile().data.username)
 
-    const { loading, data } = useQuery(QUERY_STOCKS)
-    const allStocks = data?.stocks || [];
+    const { loading, data } = useQuery(QUERY_USER, {
+      variables: { username: Auth.getProfile().data.username }
+    });
+  
+    const user = data?.user || {};
+
+    const { data:market } = useQuery(QUERY_STOCKS)
+    const allStocks = market?.stocks || [];
 
 
     if(loading) {
@@ -47,7 +55,10 @@ const Dashboard = () => {
                 </span>
             </div>
             <div>
-            <h2>
+                <h1>{user.username}</h1>
+                <h1>{user.money}</h1>
+
+                <h2>
                     Current Market
                 </h2>
 
@@ -61,7 +72,7 @@ const Dashboard = () => {
                     My Stocks
                 </h2>
 
-                {/* <MyPortfolio /> */}
+                <MyPortfolio profile={user} stocks={allStocks}/>
 
                 {/* <div>
                     <ul>

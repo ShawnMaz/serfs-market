@@ -39,11 +39,10 @@ export const BUY_STOCK = gql`
 `;
 
 export const SELL_STOCK = gql`
-mutation SellStock($stockId: ID!, $qty: Int!) {
+mutation sellStock($stockId: ID!, $qty: Int!) {
   sellStock(stockId: $stockId, qty: $qty) {
     _id
     money
-    username
     portfolio {
       _id
       quantity
@@ -52,4 +51,3 @@ mutation SellStock($stockId: ID!, $qty: Int!) {
   }
 }
 `;
-

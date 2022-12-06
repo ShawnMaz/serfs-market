@@ -34,6 +34,7 @@ export const QUERY_STOCKS = gql`
       stockName
       stockDescription
       stockPrice
+      stockCategory
       multiplier
     }
   }
