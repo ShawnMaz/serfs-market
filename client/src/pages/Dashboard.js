@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import { useParams, Navigate } from 'react-router-dom';
 import Auth from '../utils/auth';
 import News from '../components/News';
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_STOCKS, QUERY_USER } from "../utils/queries";
 import { useStockContext } from '../utils/GlobalState';
 import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 import serfsLogo from '../assets/images/serfsLogo.jpg';
@@ -10,28 +13,32 @@ import MyPortfolio from '../components/MyStocks';
 
 const Dashboard = () => {
 
-    const [state, dispatch] = useStockContext();
+    // const [state, dispatch] = useStockContext();
     
-    const { stocks, stockEntry } = state;
+    // const { stocks, stockEntry } = state;
 
-    const buyStock = stockId => {
-        const stock = stockEntry.find((choice) => choice.stockId === stockId)
-        if(stock){
-            dispatch ({
-                type: UPDATE_STOCK_ENTRY,
-                stockId: stockId,
-                quantity: parseInt(stockEntry.quantity) + 1
-            })
+    // const buyStock = stockId => {
+    //     const stock = stockEntry.find((choice) => choice.stockId === stockId)
+    //     if(stock){
+    //         dispatch ({
+    //             type: UPDATE_STOCK_ENTRY,
+    //             stockId: stockId,
+    //             quantity: parseInt(stockEntry.quantity) + 1
+    //         })
 
-        }
-        console.log (parseInt(stockEntry[0].quantity) + 1)
-        console.log(stock)
-    }
-    
-
-    // if(loading) {
-    //     <h1>LOADING...</h1>
+    //     }
+    //     console.log (parseInt(stockEntry[0].quantity) + 1)
+    //     console.log(stock)
     // }
+    
+
+    const { loading, data } = useQuery(QUERY_STOCKS)
+    const allStocks = data?.stocks || [];
+
+
+    if(loading) {
+        <h2>LOADING...</h2>
+    }
     return (
         <section>
             <div>
@@ -40,11 +47,13 @@ const Dashboard = () => {
                 </span>
             </div>
             <div>
-                <h2>
-                    My Gains
+            <h2>
+                    current market
                 </h2>
 
-               <ManageStocks />
+                {allStocks.map((stock) => (
+                    <ManageStocks key={stock._id} stock = {stock} />
+                ))}
             </div>
             
             <div>
@@ -54,7 +63,7 @@ const Dashboard = () => {
 
                 <MyPortfolio />
 
-                <div>
+                {/* <div>
                     <ul>
                         {stockEntry.map((eachStock) => (
                             <li 
@@ -67,7 +76,7 @@ const Dashboard = () => {
                         ))}
                     </ul>
 
-                </div>
+                </div> */}
             </div>
             <div>
                 <h2>

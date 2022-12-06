@@ -25,20 +25,31 @@ export const ADD_USER = gql`
 `;
 
 export const BUY_STOCK = gql`
-  mutation buyStock($id: ID!) {
-    buyStock(stockId: $id) {
+  mutation buyStock($stockId: ID!, $qty: Int!) {
+    buyStock(stockId: $stockId, qty: $qty) {
       _id
-      stockName
-      stockDescription
-      stockPrice
+      money
+      portfolio {
+        _id
+        quantity
+        stockId
     }
   }
+}
 `;
 
 export const SELL_STOCK = gql`
-  mutation sellStock($id: ID!) {
-    sellStock(stockId: $id) {
+mutation SellStock($stockId: ID!, $qty: Int!) {
+  sellStock(stockId: $stockId, qty: $qty) {
+    _id
+    money
+    username
+    portfolio {
       _id
+      quantity
+      stockId
     }
   }
+}
 `;
+
