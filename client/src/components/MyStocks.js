@@ -17,7 +17,7 @@ return (
         <p>{profile.money}</p>
         <p>Portfolio</p>
             <ul>
-                {profile.portfolio.map((stocks) => (
+                {profile && profile.portfolio.map((stocks) => (
                     <li key={stocks._id}>
                     {stocks.stockId}
                     {stocks.quantity}

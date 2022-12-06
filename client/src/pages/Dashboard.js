@@ -48,10 +48,10 @@ const Dashboard = () => {
             </div>
             <div>
             <h2>
-                    current market
+                    Current Market
                 </h2>
 
-                {allStocks.map((stock) => (
+                {allStocks && allStocks.map((stock) => (
                     <ManageStocks key={stock._id} stock = {stock} />
                 ))}
             </div>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                     My Stocks
                 </h2>
 
-                <MyPortfolio />
+                {/* <MyPortfolio /> */}
 
                 {/* <div>
                     <ul>
