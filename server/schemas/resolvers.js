@@ -113,7 +113,8 @@ const resolvers = {
           // define our new stock entry if one does not exist already
           newStockEntry = {
             stockId: stockId,
-            quantity: qty
+            quantity: qty,
+            stockName: stock.stockName
           }
           // add it to our user's portfolio and subtract from their cash
           const updatedUser = await User.findOneAndUpdate(

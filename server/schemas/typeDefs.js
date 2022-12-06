@@ -16,6 +16,7 @@ const typeDefs = gql`
     _id: ID
     stockId: ID
     quantity: Int
+    stockName: String
   }
 
   type Stock {
