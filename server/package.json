@@ -13,6 +13,7 @@
   },
   "scripts": {
     "seed": "node seeders/seed.js",
-    "wipe-users": "node seeders/dumpUsers.js"
+    "wipe-users": "node seeders/dumpUsers.js",
+    "watch": "nodemon server"
   }
 }
