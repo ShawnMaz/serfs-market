@@ -48,7 +48,7 @@ const Dashboard = () => {
             </div>
             <div>
             <h2>
-                    current market
+                    Current Market
                 </h2>
 
                 {allStocks && allStocks.map((stock) => (

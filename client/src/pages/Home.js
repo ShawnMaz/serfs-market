@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import Login from '../components/Login';
+// import Login from '../pages/Login';
 import Signup from '../components/Signup';
 import market from '../assets/images/market.jpg';
 import { QUERY_STOCKS } from '../utils/queries';
@@ -37,7 +37,7 @@ const Home = () => {
         </ul>
       </div>
       <div>
-        <Login />
+        <Signup />
       </div>
     </main>
   )  
