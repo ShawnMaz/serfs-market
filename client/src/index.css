@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'MedievalSharp', cursive;
+  color: #723922;  
+  background-color: #E5E4DC; 
+  padding: 10px;
+  margin: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: 'Carrois Gothic', sans-serif;
+  font-size: 18px;
+  margin: 10px;
+  padding: 20px;
+  border: 10px;
+  
+}
+
+code {
+  font-family: 'MedievalSharp', cursive;
+}
+
+header {
+  color:#723922; 
+  display: flex;
+  float: top;
+  justify-content: space-between;
+}
+
+header a {
+  color:#723922;
+}
+
+header a:hover {
+  color:#D21404;
+}
+
+nav {
+  display: flex;
+  float: right;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content: space-around;
+  padding: 0 10px;
+  margin: 5px;
+  position: --webkit-sticky;
+  position: sticky;
+  z-index: 9999;
+  border: 10px;
+  font-size: 22px;
+}
+
+nav a {
+  color: #723922;
+}
+
+nav a:hover {
+  color: #D21404;
+  text-decoration: none;
+}
+
+nav li {
+  display: inline;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px;
+  position: --webkit-sticky;
+  position: sticky;
+  z-index: 9999;
+  border: 10px;
+  cursor: pointer;
+}
+
+button {
+background-color: #723922;
+color: #fff;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+font-family: 'MedievalSharp', cursive;
+font-weight: bold;
+border-radius: 8px;
+margin: 5px;
+border: dashed;
+}
+
+#join {
+  background-color: #D21404;
+}
+
+.form-input {
+padding: 15px 32px;
+border-radius: 8px;
+background-color: #fffAf1;
+margin: 2px;
+}
+
+#peasantsToil img {
+float: left;
+padding: 20px;
+border-radius: 8px;
+}
+
+#peasantsToil p {
+margin: 20px;
+padding: 20px;
+border: 20px;
+width: 100%;
+}
+
+ /* .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+ }
+
+ .column {
+  flex: 50%;
+  padding: 0 4px;
+ } */
+
+footer {
+display: flex;
+justify-items: center;
+font-family: 'Carrois Gothic', sans-serif;
+font-size: 14px;
+padding: 5px;
+width: 100%;
+}
