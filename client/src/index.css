@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
 
 body {
-  margin: 0;
   font-family: 'MedievalSharp', cursive;
   color: #723922;  
   background-color: #E5E4DC; 
@@ -22,7 +23,6 @@ p {
   margin: 10px;
   padding: 20px;
   border: 10px;
-  
 }
 
 code {
@@ -30,18 +30,20 @@ code {
 }
 
 header {
-  color:#723922; 
+  color:#E5E4DC; 
   display: flex;
-  float: top;
   justify-content: space-between;
+  background-color: #723922;
 }
 
 header a {
-  color:#723922;
+  color:#E5E4DC;
+  padding: 8px;
 }
 
 header a:hover {
-  color:#D21404;
+  color:#723922;
+  background-color: #E5E4DC;
 }
 
 nav {
@@ -60,11 +62,11 @@ nav {
 }
 
 nav a {
-  color: #723922;
+  color: #E5E4DC; 
 }
 
 nav a:hover {
-  color: #D21404;
+  color: #723922;
   text-decoration: none;
 }
 
