@@ -3,7 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import Auth from '../utils/auth';
 import News from '../components/News';
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_STOCKS, QUERY_USER } from "../utils/queries";
+import { QUERY_ME, QUERY_STOCKS, QUERY_USER } from "../utils/queries";
 import { useStockContext } from '../utils/GlobalState';
 import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
 import serfsLogo from '../assets/images/serfsLogo.jpg';
@@ -32,17 +32,19 @@ const Dashboard = () => {
     // }
     
     const { username: userParam } = useParams();
-    console.log(Auth.getProfile().data.username)
 
-    const { loading, data } = useQuery(QUERY_USER, {
-      variables: { username: Auth.getProfile().data.username }
+    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+      variables: { username: userParam }
     });
   
-    const user = data?.user || {};
-
+    const user = data?.me || data?.user || {};
+    console.log(user)
     const { data:market } = useQuery(QUERY_STOCKS)
     const allStocks = market?.stocks || [];
 
+    if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+        return <Navigate to="/dashboard" />
+    }
 
     if(loading) {
         <h2>LOADING...</h2>

@@ -1,12 +1,10 @@
 import React, {useState} from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_STOCKS, QUERY_USER } from "../utils/queries";
 import { BUY_STOCK, SELL_STOCK } from "../utils/mutations";
 
 const ManageStocks= ({stock}) => {
 
     const [ quantity, setQuantity ] = useState(1)
-    console.log("stock",stock)
     // , {
     //   refetchQueries: [{query:QUERY_USER}]
     // }
@@ -39,21 +37,6 @@ const ManageStocks= ({stock}) => {
 
 return (
     <section>
-            {/* <h2>
-                Current Stocks
-            </h2>
-
-            <ul>
-                {allStocks.map((stock) => (
-                    <li key={stock._id} >
-                    {stock.stockName}
-                    {stock.stockPrice}
-                    {stock.stockDescription}
-                    <input value={quantity} onChange={(e)=> setQuantity(e.target.value)}/>
-                    <button onClick={handleClick} data-id={stock._id}>Buy</button>
-                    </li>
-                ))}
-            </ul> */}
 
         <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice}, {stock.stockDescription}</div>
         <div>
@@ -66,6 +49,9 @@ return (
           />
           <button onClick={buyClick} data-id={stock._id}>Buy</button>
           <button onClick={sellClick} data-id={stock._id}>Sell</button>
+        </div>
+        <div>
+
         </div>
     </section>
 )
