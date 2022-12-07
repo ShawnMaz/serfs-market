@@ -27,7 +27,7 @@ const Home = () => {
             <img src={market} style={{ width: '100%'}} alt='Peasants at the market.' />
           </span>
         </div>
-        <div className='marketPlace'>
+        <div className='stockItems'>
           <h2>Stock Status 🗡️ 🛡️ 🏹 🍎 🍞 🏺 📿 🧺 💰</h2>
           <ul>
             {stockData.map((stocks) => (
