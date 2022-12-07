@@ -1,6 +1,6 @@
 // define our events
 // import our models
-const { Stock } = require('../../../models');
+const { Stock, News } = require('../../../models');
 
 // wartime event
 async function warTrigger() {
@@ -20,6 +20,13 @@ async function warTrigger() {
       { new: true }
     );
   }
+
+  // push this news event to our News database
+  const news = await News.insert({
+    eventName: "War",
+    eventDescription: "War amongst the kingdoms is anticipated; the value of weaponry has skyrocketed!"
+  });
+  console.log(news);
 }
 
 // famine event
@@ -40,6 +47,13 @@ async function famineTrigger() {
       { new: true }
     );
   }
+
+  // push this news event to our News database
+  const news = await News.insert({
+    eventName: "Famine",
+    eventDescription: "Famine has struck the lands; the value of food has skyrocketed!"
+  });
+  console.log(news);
 }
 
 // prosperity event
@@ -60,6 +74,13 @@ async function prosperityTrigger() {
       { new: true }
     );
   }
+
+  // push this news event to our News database
+  const news = await News.insert({
+    eventName: "Prosperity",
+    eventDescription: "The kingdom prospers; the value of luxury goods has skyrocketed!"
+  });
+  console.log(news);
 }
 
 module.exports = [ warTrigger, famineTrigger, prosperityTrigger ];
