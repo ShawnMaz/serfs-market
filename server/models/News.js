@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+// import our date helper
+const { formatDate } = require('../utils/dateFormat');
 
 const newsSchema = new Schema(
   {
@@ -12,7 +14,8 @@ const newsSchema = new Schema(
     },
     date: {
       type: Date,
-      default: Date.now
+      default: Date.now,
+      get: formatDate
     }
   }
 );
