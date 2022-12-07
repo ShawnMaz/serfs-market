@@ -21,8 +21,13 @@ async function warTrigger() {
     );
   }
 
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
   // push this news event to our News database
-  const news = await News.insert({
+  const news = await News.create({
     eventName: "War",
     eventDescription: "War amongst the kingdoms is anticipated; the value of weaponry has skyrocketed!"
   });
@@ -48,8 +53,13 @@ async function famineTrigger() {
     );
   }
 
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
   // push this news event to our News database
-  const news = await News.insert({
+  const news = await News.create({
     eventName: "Famine",
     eventDescription: "Famine has struck the lands; the value of food has skyrocketed!"
   });
@@ -75,8 +85,13 @@ async function prosperityTrigger() {
     );
   }
 
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
   // push this news event to our News database
-  const news = await News.insert({
+  const news = await News.create({
     eventName: "Prosperity",
     eventDescription: "The kingdom prospers; the value of luxury goods has skyrocketed!"
   });

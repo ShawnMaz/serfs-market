@@ -18,4 +18,4 @@ const newsSchema = new Schema(
 );
 
 const News = model('News', newsSchema);
-module.exports = Stock;
+module.exports = News;
