@@ -40,16 +40,16 @@ function App() {
       <Router>
         <div>
           <StockProvider>
-          <Nav />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
-          </div>
-          <Footer />
+            <Nav />
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Routes>
+            </div>
+            <Footer />
           </StockProvider>
         </div>
       </Router>
