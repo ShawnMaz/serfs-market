@@ -21,7 +21,9 @@ const MyPortfolio= ({profile, stocks}) => {
 
     const findStockPrice = (id) => {
         const index = stocks.findIndex(index => index._id === id);
-        return stocks[index].stockPrice * stocks[index].multiplier;
+        if (stocks[index]) {
+            return stocks[index].stockPrice * stocks[index].multiplier;
+        }
     }
 
     // console.log(profile)
