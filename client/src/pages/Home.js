@@ -16,9 +16,8 @@ const Home = () => {
     return <h2>LOADING...</h2>
   }
 
-
   return (
-    <main>
+    <main className='mainPage'>
       <div className='home'>
         <div className='marketPlace'>
           <h2>

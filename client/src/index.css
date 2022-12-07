@@ -4,6 +4,7 @@
   --primary-color: #723922;
   --secondary-color: #E5E4DC; 
   --tertiary-color: #fff;
+  --quarternary-color: #D21404;
 }
 
 * {
@@ -92,9 +93,9 @@ nav li {
 }
 
 button {
-  background-color:var(--primary-color);
+  background-color:var(--quarternary-color);
   color:var(--tertiary-color);
-  padding: 15px 32px;
+  padding: 20px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -125,6 +126,12 @@ button {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home {
@@ -165,13 +172,21 @@ button {
   padding-bottom: 8px;
 }
 
-
-#join {
-  background-color: #D21404;
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-input {
-  padding: 15px 32px;
+.signUpForm div form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signUpForm input {
+  padding: 20px 40px;
   border-radius: 8px;
   background-color: var(--tertiary-color);
   margin: 2px;
