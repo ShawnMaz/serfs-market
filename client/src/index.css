@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
 
+:root {
+  --primary-color: #723922;
+  --secondary-color: #E5E4DC; 
+  --tertiary-color: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +15,8 @@
 
 body {
   font-family: 'MedievalSharp', cursive;
-  color: #723922;  
-  background-color: #E5E4DC; 
+  color:var(--primary-color);
+  background-color:var(--secondary-color); 
   padding: 10px;
   margin: 10px;
   -webkit-font-smoothing: antialiased;
@@ -30,20 +36,19 @@ code {
 }
 
 header {
-  color:#E5E4DC; 
+  color:var(--secondary-color); 
   display: flex;
   justify-content: space-between;
-  background-color: #723922;
+  background-color:var(--primary-color);
 }
 
 header a {
-  color:#E5E4DC;
-  padding: 8px;
+  color:var(--secondary-color); 
 }
 
 header a:hover {
-  color:#723922;
-  background-color: #E5E4DC;
+  color:var(--primary-color);
+  color:var(--secondary-color); 
 }
 
 nav {
@@ -62,11 +67,11 @@ nav {
 }
 
 nav a {
-  color: #E5E4DC; 
+  color:var(--secondary-color); 
 }
 
 nav a:hover {
-  color: #723922;
+  color:var(--primary-color);
   text-decoration: none;
 }
 
@@ -85,8 +90,8 @@ nav li {
 }
 
 button {
-  background-color: #723922;
-  color: #fff;
+  background-color:var(--primary-color);
+  color:var(--tertiary-color);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -125,7 +130,7 @@ button {
 .form-input {
   padding: 15px 32px;
   border-radius: 8px;
-  background-color: #fffAf1;
+  background-color: var(--tertiary-color);
   margin: 2px;
 }
 
