@@ -29,7 +29,7 @@ return (
                 <li key={ownedStock.stockId}>
                 Stock Name: {ownedStock.stockName} <br/>
                 Qty: {ownedStock.quantity} <br/>
-                Current Worth: {parseInt(ownedStock.quantity) }
+                Current Worth: { (ownedStock.quantity) } {/* todo: query stock from ID, multiply by value and multiplier */}
                 </li>
             )): null}
         </ul>

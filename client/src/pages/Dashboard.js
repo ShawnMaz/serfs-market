@@ -69,19 +69,17 @@ const Dashboard = () => {
           <MyPortfolio profile={user} stocks={allStocks} />
 
           {/* <div>
-                      <ul>
-                          {stockEntry.map((eachStock) => (
-                              <li 
-                                  key={eachStock.stockId}
-                              >
-                                  {eachStock.quantity}
-                                  <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
-                              </li>
-
-                          ))}
-                      </ul>
-
-                  </div> */}
+              <ul>
+                  {stockEntry.map((eachStock) => (
+                      <li 
+                          key={eachStock.stockId}
+                      >
+                          {eachStock.quantity}
+                          <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
+                      </li>
+                  ))}
+              </ul>
+          </div> */}
         </div>
         <div className='serfNews'>
           <div className='serfScroll'>

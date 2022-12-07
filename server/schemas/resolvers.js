@@ -35,7 +35,7 @@ const resolvers = {
 
     // querying the news bulleting
     news: async () => {
-      return await News.find().select("-__v");
+      return await News.find().select("-__v").sort('-date');
     },
   },
 

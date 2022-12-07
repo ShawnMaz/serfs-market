@@ -37,7 +37,7 @@ const ManageStocks= ({stock}) => {
 
 return (
     <section>
-        <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice}, {stock.stockDescription}</div>
+        <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice * stock.multiplier}, {stock.stockDescription}</div>
         <div className='manageStock'>
           <span>Quantity</span>
           <input
