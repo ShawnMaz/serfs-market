@@ -104,7 +104,7 @@ const Dashboard = () => {
             alt="Old yellow scroll paper."
           />
         </span>
-        {event ? event.map((event) => (
+        {event.length ? event.map((event) => (
           <News key={event._id} event={event} />
         )):null}
 
