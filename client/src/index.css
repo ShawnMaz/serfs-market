@@ -38,6 +38,7 @@ code {
 header {
   color:var(--secondary-color); 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-color:var(--primary-color);
 }
@@ -102,6 +103,21 @@ button {
   border-radius: 8px;
   margin: 5px;
   border: dashed;
+}
+
+.logoTitle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 300px;
+}
+
+.logoTitle img {
+  width: 100px;
+}
+
+.logoTitle h1 {
+  font-size: 1.5rem;
 }
 
 .home {
@@ -192,3 +208,11 @@ footer {
   width: 100%;
   margin-top: 75px;
 }
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

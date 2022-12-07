@@ -42,20 +42,19 @@ const Nav = () => {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
+    <header>
+      <Link to="/">
+        <div className='logoTitle'>
           <span role="img" aria-label="serfsLogo">
             <img
               src={serfsLogo}
-              style={{ width: "15%" }}
               alt="Project logo for The Serf’s Market"
             />
           </span>
-          The Serf's Market
-        </Link>
-      </h1>
-
+          <h1>The Serf's Market</h1>
+        </div>
+      </Link>
+     
       <nav>{showNavigation()}</nav>
     </header>
   );
