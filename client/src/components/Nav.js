@@ -1,6 +1,4 @@
 import React from "react";
-import About from "../pages/About";
-import Login from "../pages/Login";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import serfsLogo from "../assets/images/serfsLogo.jpg";
