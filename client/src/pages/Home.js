@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-// import Login from '../pages/Login';
 import Signup from '../components/Signup';
 import market from '../assets/images/market.jpg';
 import { QUERY_STOCKS } from '../utils/queries';
+import Auth from '../utils/auth';
+
 
 
 const Home = () => {
@@ -15,9 +16,8 @@ const Home = () => {
     return <h2>LOADING...</h2>
   }
 
-
   return (
-    <main>
+    <main className='mainPage'>
       <div className='home'>
         <div className='marketPlace'>
           <h2>
@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <Signup />
+        {!Auth.loggedIn() &&  <Signup />}
       </div>
     </main>
   )  
