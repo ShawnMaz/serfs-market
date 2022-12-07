@@ -10,6 +10,7 @@ import '../index.css';
 const Login = () => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -41,7 +42,7 @@ const Login = () => {
       };
     
     
-    
+    console.log(error);
       return (
         <main className='flex-row justify-center mb-4'>
           <div className='col-12 col-md-6'>

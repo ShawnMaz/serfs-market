@@ -99,6 +99,25 @@ button {
   border: dashed;
 }
 
+.home {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+.marketPlace {
+  width: 46%;
+  min-width: 300px;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stockItems {
+  
+}
+
 #join {
   background-color: #D21404;
 }
@@ -109,12 +128,6 @@ button {
   background-color: #fffAf1;
   margin: 2px;
 }
-
-/* .marketPlace img {
-  float: left;
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 #peasantsToil img {
 float: left;
@@ -145,17 +158,6 @@ form {
   flex-wrap: wrap;
   float: left;
 }
-
- /* .row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
- }
-
- .column {
-  flex: 50%;
-  padding: 0 4px;
- } */
 
 footer {
   display: flex;
