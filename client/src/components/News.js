@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_NEWS } from "../utils/queries";
 
-const News = () => {
+const News = (event) => {
 
 
-    return (
-        <section>
-            <p>event examples</p>
-        </section>
-    )
-}
+  return (
+    <section>
+          <p>{event.eventName}</p>
+          <p>{event.eventDescription}</p>
+          <p>Posted At: {event.date}</p>
+    </section>
+  );
+};
 
 export default News;
