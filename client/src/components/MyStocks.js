@@ -13,13 +13,17 @@ const MyPortfolio= ({profile, stocks}) => {
     // }
     // console.log(stocks)
     // console.log("user", profile.money)
-   
 
+    // const findIndex = (id) => {
+    //     const index = stocks.findIndex(index => index._id === id)
+    //     return stocks[index].stockPrice;
+    // }
 
-    const findIndex = (id) => {
-        const index = stocks.findIndex(index => index._id === id)
-        return stocks[index].stockPrice;
+    const findStockPrice = (id) => {
+        const index = stocks.findIndex(index => index._id === id);
+        return stocks[index].stockPrice * stocks[index].multiplier;
     }
+
     // console.log(profile)
 
 return (
@@ -29,7 +33,7 @@ return (
                 <li key={ownedStock.stockId}>
                 Stock Name: {ownedStock.stockName} <br/>
                 Qty: {ownedStock.quantity} <br/>
-                Current Worth: { (ownedStock.quantity) } {/* todo: query stock from ID, multiply by value and multiplier */}
+                Current Worth: {ownedStock.quantity * findStockPrice(ownedStock.stockId)} ({ownedStock.quantity} at value of {findStockPrice(ownedStock.stockId)})
                 </li>
             )):<p>You're empty-handed!</p>}
         </ul>
