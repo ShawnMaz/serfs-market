@@ -38,45 +38,33 @@ header {
   justify-content: space-between;
   background-color:var(--primary-color);
   margin-bottom: 10px;
+  align-items: center;
 }
 
 header a {
   color:var(--secondary-color); 
 }
 
-header a:hover {
-  background-color:var(--quarternary-color);
-  padding: 15px;
-  border-radius: 8px;
-}
-
-nav {
+nav ul {
   display: flex;
-  float: right;
-  flex-wrap: wrap;
-  align-items:center;
-  justify-content: space-around;
-  padding: 0 10px;
-  margin: 5px;
-  position: --webkit-sticky;
-  position: sticky;
-  z-index: 9999;
-  border: 10px;
-  font-size: 22px;
+  list-style: none;
+  font-size: 1.25rem;
+  margin-right: 10px;
 }
 
-nav li {
-  display: inline;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-  margin: 10px;
-  position: --webkit-sticky;
-  position: sticky;
-  z-index: 9999;
-  border: 10px;
+nav ul li {
+  padding: 18px;
+}
+
+nav li:hover {
+  background-color:var(--quarternary-color);
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.navActive {
+  background-color:var(--quarternary-color);
+  border-radius: 8px;
 }
 
 button {
@@ -107,13 +95,7 @@ button {
 
 .logoTitle h1 {
   font-size: 1.5rem;
-}
-
-.navLinks {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+} 
 
 .mainPage {
   display: flex;
@@ -236,6 +218,10 @@ footer {
   header {
     flex-direction: column;
     align-items: center;
+  }
+
+  nav ul {
+    margin-right: 0;
   }
 
   .loginPage {

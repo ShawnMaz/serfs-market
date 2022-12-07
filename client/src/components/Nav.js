@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Auth from "../utils/auth";
 import serfsLogo from "../assets/images/serfsLogo.jpg";
 
 const Nav = () => {
+  const location = useLocation();
+  console.log(location);
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className='navLinks'>
-          <li>
-            <Link to="/Dashboard">Dashboard</Link>
+        <ul>
+         <li className={location.pathname === '/dashboard' ? 'navActive' : ''}>
+            <Link to='/dashboard'>Dashboard</Link>
           </li>
           <li>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
@@ -21,15 +24,15 @@ const Nav = () => {
       );
     } else {
       return (
-        <ul className='navLinks'>
-          <li>
-            <Link to="/">Home</Link>
+        <ul>
+          <li className={location.pathname === '/' ? 'navActive' : ''}>
+            <Link to='/'>Home</Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
+          <li className={location.pathname === '/about' ? 'navActive' : ''}>
+            <Link to='/about'>About</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
+          <li className={location.pathname === '/login' ? 'navActive' : ''}>
+            <Link to='/login'>Login</Link>
           </li>
         </ul>
       );
@@ -38,7 +41,7 @@ const Nav = () => {
 
   return (
     <header>
-      <Link to="/">
+      <Link to='/'>
         <div className='logoTitle'>
           <span role="img" aria-label="serfsLogo">
             <img
