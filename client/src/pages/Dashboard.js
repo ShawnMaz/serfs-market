@@ -58,58 +58,50 @@ const Dashboard = () => {
     <h2>LOADING...</h2>;
   }
   return (
-    <section>
-      <div>
-        <span role="img" aria-label="serfsLogo">
-          <img src={serfsLogo} style={{ width: "25%" }} alt="Shield" />
-        </span>
-      </div>
-      <div>
-        <h1>{user.username}</h1>
-        <h1>{user.money}</h1>
+    <section className='dashboardPage'>
+      <div className='dashboardUserInfo'>
+        <h1>Name: {user.username}</h1><br></br>
+        <h1>Balance: {user.money}</h1><br></br>
+      </div>  
+      <div className='dashboardStockInfo'> 
+        <div className='myStocks'>
+          <h2>My Stocks</h2>
+          <MyPortfolio profile={user} stocks={allStocks} />
 
+          {/* <div>
+                      <ul>
+                          {stockEntry.map((eachStock) => (
+                              <li 
+                                  key={eachStock.stockId}
+                              >
+                                  {eachStock.quantity}
+                                  <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
+                              </li>
+
+                          ))}
+                      </ul>
+
+                  </div> */}
+        </div>
+        <div className='serfNews'>
+          <div className='serfScroll'>
+            <h2>Serf’s News</h2>
+            <span role='img' aria-label='scrollPaper'>
+              <img src={scroll} alt="Old yellow scroll paper." />
+            </span>
+          </div>
+            {event.length ? event.map((event) => (
+              <News key={event._id} event={event} />
+            )):null}
+        </div>
+      </div>
+      <div className='dashboardCurrentMarket'>
         <h2>Current Market</h2>
-
-        {allStocks &&
-          allStocks.map((stock) => (
-            <ManageStocks key={stock._id} stock={stock} />
-          ))}
+          {allStocks &&
+            allStocks.map((stock) => (
+              <ManageStocks key={stock._id} stock={stock} />
+            ))}
       </div>
-      <div>
-        <h2>My Stocks</h2>
-
-        <MyPortfolio profile={user} stocks={allStocks} />
-
-        {/* <div>
-                    <ul>
-                        {stockEntry.map((eachStock) => (
-                            <li 
-                                key={eachStock.stockId}
-                            >
-                                {eachStock.quantity}
-                                <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
-                            </li>
-
-                        ))}
-                    </ul>
-
-                </div> */}
-      </div>
-      <div>
-        <h2>Serf’s News</h2>
-        <span role="img" aria-label="market">
-          <img
-            src={scroll}
-            style={{ width: "25%" }}
-            alt="Old yellow scroll paper."
-          />
-        </span>
-        {event.length ? event.map((event) => (
-          <News key={event._id} event={event} />
-        )):null}
-
-      </div>
-
     </section>
   );
 };

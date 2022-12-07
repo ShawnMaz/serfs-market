@@ -24,8 +24,6 @@ const MyPortfolio= ({profile, stocks}) => {
 
 return (
     <section>
-        <h3>{profile.username}</h3>
-        <p>{profile.money}</p>
         <p>Portfolio</p>
             <ul>
                 {profile.portfolio ? profile.portfolio.map((ownedStock) => (

@@ -186,17 +186,33 @@ button {
   border-radius: 15px;
 }
 
-
-#bowArrow img {
-  float: right;
-  border-radius: 8px;
+.dashboardPage {
   display: flex;
-  flex-wrap: wrap;
-  float: right;
-  margin: 20px;
-  padding: 20px;
-  border: 20px;
+  flex-direction: column;
+  width: 100%;
 }
+
+.dashboardUserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardStockInfo {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.serfNews img {
+  width: 50px;
+}
+
+.serfScroll {
+  display: flex;
+  
+}
+
 
 form {
   display: flex;
