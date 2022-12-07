@@ -42,7 +42,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   background-color:var(--primary-color);
-  margin: 0px;
+  margin-bottom: 10px;
 }
 
 header a {
