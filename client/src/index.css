@@ -41,6 +41,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   background-color:var(--primary-color);
+  margin: 0px;
 }
 
 header a {
@@ -120,6 +121,12 @@ button {
   font-size: 1.5rem;
 }
 
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .home {
  display: flex;
  flex-wrap: wrap;
@@ -157,6 +164,7 @@ button {
 .stockItems h2 {
   padding-bottom: 8px;
 }
+
 
 #join {
   background-color: #D21404;
