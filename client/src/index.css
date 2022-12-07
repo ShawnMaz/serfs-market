@@ -182,30 +182,20 @@ button {
 .about {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 8px;
 }
 
-.aboutContent {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.about h2 {
+  margin-bottom: 10px;
 }
 
-/* .aboutContent img {
-  width: 75%;
-} */
-
-/* #peasantsToil img {
-float: left;
-padding: 20px;
-border-radius: 8px;
+.about img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
 }
 
-#peasantsToil p {
-  margin: 20px;
-  padding: 20px;
-  border: 20px;
-  width: 100%;
-} */
 
 #bowArrow img {
   float: right;
