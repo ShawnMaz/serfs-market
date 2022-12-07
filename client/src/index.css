@@ -179,6 +179,14 @@ button {
   margin: 2px;
 }
 
+.signUpForm h2 {
+  margin-bottom: 10px;
+}
+
+.loginPage {
+  min-height: 65vh;
+}
+
 .about {
   display: flex;
   flex-direction: column;
@@ -228,6 +236,10 @@ footer {
   header {
     flex-direction: column;
     align-items: center;
+  }
+
+  .loginPage {
+    min-height: 50vh;
   }
 }
 

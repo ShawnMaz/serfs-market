@@ -44,41 +44,34 @@ const Login = () => {
     
     console.log(error);
       return (
-        <main className='flex-row justify-center mb-4'>
-          <div className='col-12 col-md-6'>
-            <div className='card'>
-              <h2 className='card-header'>Login</h2>
-              
-              <div className='card-body'>
-                <form onSubmit={handleFormSubmit}>
-                  <input
-                    className='form-input'
-                    placeholder='Your email'
-                    name='email'
-                    type='email'
-                    id='email'
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className='form-input'
-                    placeholder='******'
-                    name='password'
-                    type='password'
-                    id='password'
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                  <button className='btn d-block w-100' type='submit'>
-                    Submit
-                  </button>
-                  {error && <div>Login failed</div>}
-                </form>
-                <span role='img' aria-label='bowArrow'>
-                  <img src={arrow} style={{ width: '45%'}} alt='A soldier defends the castle.' />
-                </span>
-              </div>
-            </div>
+        <main className='signUpForm loginPage'>
+          <h2>Login</h2>
+          <div>
+            <form onSubmit={handleFormSubmit}>
+              <input
+                placeholder='Your email'
+                name='email'
+                type='email'
+                id='email'
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <input
+                placeholder='password'
+                name='password'
+                type='password'
+                id='password'
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <button type='submit'>
+                Login
+              </button>
+              {error && <div>Login failed</div>}
+            </form>
+            <span role='img' aria-label='bowArrow'>
+              {/* <img src={arrow} style={{ width: '45%'}} alt='A soldier defends the castle.' /> */}
+            </span>
           </div>
         </main>
       );
