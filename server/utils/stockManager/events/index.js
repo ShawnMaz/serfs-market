@@ -24,14 +24,17 @@ async function warTrigger() {
   // pop entries off table if exceeding max length of 10
   const bulletin = await News.find();
   if (bulletin && bulletin.length > 9) {
-    bulletin.shift();
+    for (let i = 0; i < bulletin.length - 8; i++) {
+      bulletin.pop();
+    };
+    const deletedBulletin = await News.deleteMany();
+    const newBulletin = await News.insertMany(bulletin);
   }
   // push this news event to our News database
   const news = await News.create({
     eventName: "War",
     eventDescription: "War amongst the kingdoms is anticipated; the value of weaponry has skyrocketed!"
   });
-  console.log(news);
 }
 
 // famine event
@@ -56,14 +59,17 @@ async function famineTrigger() {
   // pop entries off table if exceeding max length of 10
   const bulletin = await News.find();
   if (bulletin && bulletin.length > 9) {
-    bulletin.shift();
+    for (let i = 0; i < bulletin.length - 8; i++) {
+      bulletin.pop();
+    }
+    const deletedBulletin = await News.deleteMany();
+    const newBulletin = await News.insertMany(bulletin);
   }
   // push this news event to our News database
   const news = await News.create({
     eventName: "Famine",
     eventDescription: "Famine has struck the lands; the value of food has skyrocketed!"
   });
-  console.log(news);
 }
 
 // prosperity event
@@ -86,16 +92,19 @@ async function prosperityTrigger() {
   }
 
   // pop entries off table if exceeding max length of 10
-  const bulletin = await News.find();
+  const bulletin = await News.find().sort('-date');
   if (bulletin && bulletin.length > 9) {
-    bulletin.shift();
+    for (let i = 0; i < bulletin.length - 8; i++) {
+      bulletin.pop();
+    }
+    const deletedBulletin = await News.deleteMany();
+    const newBulletin = await News.insertMany(bulletin);
   }
   // push this news event to our News database
   const news = await News.create({
     eventName: "Prosperity",
     eventDescription: "The kingdom prospers; the value of luxury goods has skyrocketed!"
   });
-  console.log(news);
 }
 
 module.exports = [ warTrigger, famineTrigger, prosperityTrigger ];

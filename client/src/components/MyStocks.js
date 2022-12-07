@@ -31,7 +31,7 @@ return (
                 Qty: {ownedStock.quantity} <br/>
                 Current Worth: { (ownedStock.quantity) } {/* todo: query stock from ID, multiply by value and multiplier */}
                 </li>
-            )): null}
+            )):<p>You're empty-handed!</p>}
         </ul>
     </section>
 )

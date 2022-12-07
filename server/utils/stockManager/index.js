@@ -38,7 +38,7 @@ async function randomizeStock() {
   // loop over each stock and modify their price
   for (const stock of stocks) { // this format allows using async
     // generate a random amount to change it by
-    const change = (Math.random() * 18) - 9; // positive and negative values
+    const change = (Math.random() * 30) - 15; // positive and negative values
     let newPrice = Math.round(stock.stockPrice + change);
     // clamp to a minimum price of 1
     if (newPrice < 0 ) {
@@ -87,7 +87,7 @@ function updateStock() {
   intervalTimer(randomizeStock, 1000 * 60 * 5);
 }
 function updateEvent() {
-  intervalTimer(triggerEvent, 1000 * 60 * 30);
+  intervalTimer(triggerEvent, 1000 * 60 * 60);
 }
 
 module.exports = { updateStock, updateEvent };
