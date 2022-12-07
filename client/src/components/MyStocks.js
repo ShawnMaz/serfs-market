@@ -11,12 +11,17 @@ const MyPortfolio= ({profile, stocks}) => {
     // if(loading) {
     //     <h2>LOADING...</h2>
     // }
-    const findStock = (id) => {
-        const name = stocks.filter(stock => stock._id === id )
-        return name[0].stockName
+    // console.log(stocks)
+    // console.log("user", profile.money)
+   
+
+
+    const findIndex = (id) => {
+        const index = stocks.findIndex(index => index._id === id)
+        return stocks[index].stockPrice;
     }
-    console.log(stocks)
-    console.log("user", profile.money)
+    // console.log(profile)
+
 return (
     <section>
         <h3>{profile.username}</h3>
@@ -25,9 +30,9 @@ return (
             <ul>
                 {profile.portfolio ? profile.portfolio.map((ownedStock) => (
                     <li key={ownedStock.stockId}>
-                    {stocks[stocks.findIndex(stock => stock._id === ownedStock.stockId)].stockName} <br/>
+                    {ownedStock.stockName} <br/>
                     {ownedStock.quantity} <br/>
-                    Current Worth: {parseInt(ownedStock.quantity) * parseInt(stocks[stocks.findIndex(stock => stock._id === ownedStock.stockId)].stockPrice)}
+                    Current Worth: {parseInt(ownedStock.quantity) }
                     </li>
                 )): null}
             </ul>

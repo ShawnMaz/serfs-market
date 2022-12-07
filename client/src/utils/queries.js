@@ -11,7 +11,36 @@ export const QUERY_USER = gql`
         _id
         stockId
         quantity
+        stockName
       }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  {
+    me{
+      _id
+      username
+      email
+      money
+      portfolio {
+        _id
+        stockId
+        quantity
+        stockName
+      }
+    }
+  }
+`;
+
+export const QUERY_NEWS = gql`
+  {
+    news{
+      _id
+      eventName
+      eventDescription
+      date
     }
   }
 `;
