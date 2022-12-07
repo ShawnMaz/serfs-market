@@ -47,7 +47,7 @@ const Dashboard = () => {
   const allStocks = market?.stocks || [];
 
   const { data: events } = useQuery(QUERY_NEWS);
-  const event = events?.news || {};
+  const newsEvents = events?.news || [];
 
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -90,7 +90,7 @@ const Dashboard = () => {
               <img src={scroll} alt="Old yellow scroll paper." />
             </span>
           </div>
-            {event.length ? event.map((event) => (
+            {newsEvents.length ? newsEvents.map((event) => (
               <News key={event._id} event={event} />
             )):<p>No Fresh News</p>}
         </div>
