@@ -200,9 +200,17 @@ button {
 
 .dashboardStockInfo {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.dashboardCurrentMarket {
+  margin: 20px auto;
+}
+
+/* .serfNews {
+  min-width: 350px;
+} */
 
 .serfNews img {
   width: 50px;
@@ -210,9 +218,46 @@ button {
 
 .serfScroll {
   display: flex;
-  
+
 }
 
+/* .myStocks {
+  min-width: 350px;
+} */
+
+.manageStock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.manageStock input {
+  padding: 20px 40px;
+  border-radius: 8px;
+  text-align: center;
+
+}
+
+.manageStockButton {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.manageStockButton button {
+  background-color:var(--primary-color); 
+}
+
+.myPortfolio {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Carrois Gothic', sans-serif;
+}
+
+.myPortfolio ul li {
+  margin-top: 10px;
+}
 
 form {
   display: flex;

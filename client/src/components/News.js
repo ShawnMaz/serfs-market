@@ -9,7 +9,7 @@ const News = (event) => {
     <section>
           <p>{event.eventName}</p>
           <p>{event.eventDescription}</p>
-          <p>Posted At: {event.date}</p>
+          <p>Posted at: {event.date}</p>
     </section>
   );
 };

@@ -37,21 +37,21 @@ const ManageStocks= ({stock}) => {
 
 return (
     <section>
-
         <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice}, {stock.stockDescription}</div>
-        <div>
-          <span>Qty:</span>
+        <div className='manageStock'>
+          <span>Quantity</span>
           <input
-            type="number"
-            placeholder=""
+            type='number'
+            placeholder='1'
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
-          <button onClick={buyClick} data-id={stock._id}>Buy</button>
-          <button onClick={sellClick} data-id={stock._id}>Sell</button>
+          <div className='manageStockButton'>
+            <button onClick={buyClick} data-id={stock._id}>Buy</button>
+            <button onClick={sellClick} data-id={stock._id}>Sell</button>
+          </div>
         </div>
         <div>
-
         </div>
     </section>
 )

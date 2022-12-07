@@ -23,17 +23,16 @@ const MyPortfolio= ({profile, stocks}) => {
     // console.log(profile)
 
 return (
-    <section>
-        <p>Portfolio</p>
-            <ul>
-                {profile.portfolio ? profile.portfolio.map((ownedStock) => (
-                    <li key={ownedStock.stockId}>
-                    {ownedStock.stockName} <br/>
-                    {ownedStock.quantity} <br/>
-                    Current Worth: {parseInt(ownedStock.quantity) }
-                    </li>
-                )): null}
-            </ul>
+    <section className='myPortfolio'>
+        <ul>
+            {profile.portfolio ? profile.portfolio.map((ownedStock) => (
+                <li key={ownedStock.stockId}>
+                Stock Name: {ownedStock.stockName} <br/>
+                Qty: {ownedStock.quantity} <br/>
+                Current Worth: {parseInt(ownedStock.quantity) }
+                </li>
+            )): null}
+        </ul>
     </section>
 )
 }

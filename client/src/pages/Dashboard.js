@@ -92,7 +92,7 @@ const Dashboard = () => {
           </div>
             {event.length ? event.map((event) => (
               <News key={event._id} event={event} />
-            )):null}
+            )):<p>No Fresh News</p>}
         </div>
       </div>
       <div className='dashboardCurrentMarket'>
