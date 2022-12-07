@@ -1,4 +1,4 @@
-const { User, Stock, StockEntry } = require('../models');
+const { User, Stock, StockEntry, News } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { GraphQLError } = require('graphql'); // for custom error handling
 const { signToken } = require('../utils/auth');
@@ -24,6 +24,12 @@ const resolvers = {
     },
     stock: async (parent, { stockId }) => {
       return await Stock.findOne({ _id: stockId })
+        .select('-__v');
+    },
+
+    // querying the news bulleting
+    news: async () => {
+      return await News.find()
         .select('-__v');
     }
   },

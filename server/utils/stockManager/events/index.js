@@ -1,6 +1,6 @@
 // define our events
 // import our models
-const { Stock } = require('../../../models');
+const { Stock, News } = require('../../../models');
 
 // wartime event
 async function warTrigger() {
@@ -20,6 +20,18 @@ async function warTrigger() {
       { new: true }
     );
   }
+
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
+  // push this news event to our News database
+  const news = await News.create({
+    eventName: "War",
+    eventDescription: "War amongst the kingdoms is anticipated; the value of weaponry has skyrocketed!"
+  });
+  console.log(news);
 }
 
 // famine event
@@ -40,6 +52,18 @@ async function famineTrigger() {
       { new: true }
     );
   }
+
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
+  // push this news event to our News database
+  const news = await News.create({
+    eventName: "Famine",
+    eventDescription: "Famine has struck the lands; the value of food has skyrocketed!"
+  });
+  console.log(news);
 }
 
 // prosperity event
@@ -60,6 +84,18 @@ async function prosperityTrigger() {
       { new: true }
     );
   }
+
+  // pop entries off table if exceeding max length of 10
+  const bulletin = await News.find();
+  if (bulletin && bulletin.length > 9) {
+    bulletin.shift();
+  }
+  // push this news event to our News database
+  const news = await News.create({
+    eventName: "Prosperity",
+    eventDescription: "The kingdom prospers; the value of luxury goods has skyrocketed!"
+  });
+  console.log(news);
 }
 
 module.exports = [ warTrigger, famineTrigger, prosperityTrigger ];
