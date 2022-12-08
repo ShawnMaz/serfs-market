@@ -69,9 +69,6 @@ const Login = () => {
               </button>
               {error && <div>Login failed</div>}
             </form>
-            <span role='img' aria-label='bowArrow'>
-              {/* <img src={arrow} style={{ width: '45%'}} alt='A soldier defends the castle.' /> */}
-            </span>
           </div>
         </main>
       );

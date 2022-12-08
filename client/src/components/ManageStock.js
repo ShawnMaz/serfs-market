@@ -18,9 +18,6 @@ const ManageStocks= ({stock}) => {
     }
 
     const [ quantity, setQuantity ] = useState(1)
-    // , {
-    //   refetchQueries: [{query:QUERY_USER}]
-    // }
     const [ buyError, setBuyError ] = useState(false);
     const [ boughtStock, setBoughtStock ] = useState(false);
     const [ purchaseStock ] = useMutation(BUY_STOCK)
