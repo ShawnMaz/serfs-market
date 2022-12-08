@@ -35,7 +35,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-setInterval(client.resetStore, 1000 * 60);
+setInterval(client.resetStore, 1000 * 10);
 
 function App() {
   return (

@@ -8,11 +8,14 @@ const events = require('./events'); // loaded as array
 // otherwise increase this value by 5
 let eventChance = 5;
 
-// write a more accurate setInterval function
+// write a more accurate setInterval function, now with randomization!
 function intervalTimer(callback, interval = 1000) { // 1 second default
   let counter = 1;
   let timeoutId;
   const startTime = Date.now();
+
+  // interval is now randomized in the below calculation
+  interval += (Math.random() * 1000 * 60 * 5)
 
   function main() {
     const nowTime = Date.now();
@@ -30,6 +33,15 @@ function intervalTimer(callback, interval = 1000) { // 1 second default
   }
 }
 
+// helper function that returns 'down' or 'up' based on input
+function dirString(num) {
+  if (num < 0) {
+    return 'down';
+  } else {
+    return 'up';
+  }
+}
+
 // main function, randomizes stock values
 async function randomizeStock() {
   // get an array of our stocks
@@ -43,6 +55,8 @@ async function randomizeStock() {
     let newPrice = Math.round(stock.stockPrice + change);
     // clamp to a minimum price of 1
     if (newPrice < 0 ) {
+      // clamp our change based on how much it overflowed, too
+      change = Math.round(change - newPrice + 1);
       newPrice = 1;
     }
 
@@ -54,7 +68,7 @@ async function randomizeStock() {
     );
 
     // check for a news bulletin update if change is significant
-    if (change > Math.abs(20)) {
+    if (Math.abs(change) > 25) {
       // refresh old bulletin
       const bulletin = await News.find().sort('-date');
       if (bulletin && bulletin.length > 9) {
@@ -68,7 +82,7 @@ async function randomizeStock() {
       // push news event to database
       const news = await News.create({
         eventName: "Significant market changes...",
-        eventDescription: `The value of ${stock.stockName} has shifted by ${Math.round(change) * stock.multiplier}.`
+        eventDescription: `The value of ${stock.stockName} has shifted ${dirString(change)} by ${Math.abs(Math.round(change)) * stock.multiplier}.`
       });
     }
   }
