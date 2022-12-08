@@ -5,7 +5,6 @@ import serfsLogo from "../assets/images/serfsLogo.jpg";
 
 const Nav = () => {
   const location = useLocation();
-  console.log(location);
 
   function showNavigation() {
     if (Auth.loggedIn()) {

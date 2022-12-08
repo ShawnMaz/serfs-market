@@ -67,7 +67,7 @@ async function randomizeStock() {
 
       // push news event to database
       const news = await News.create({
-        eventName: "Signifcant market changes...",
+        eventName: "Significant market changes...",
         eventDescription: `The value of ${stock.stockName} has shifted by ${Math.round(change) * stock.multiplier}.`
       });
     }

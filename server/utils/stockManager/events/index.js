@@ -8,7 +8,7 @@ async function warTrigger() {
   const stocks = await Stock.find({ stockCategory: 'weaponry' }).select('-__v');
 
   // display that an event has been triggered
-  console.log("War amongst the kingdoms is anticipated; The value of weaponry has skyrocketed!");
+  // console.log("War amongst the kingdoms is anticipated; The value of weaponry has skyrocketed!");
   // calculate a multiplier
   const multiplier = Math.round((Math.random() * 3) + 2);
 
@@ -43,7 +43,7 @@ async function famineTrigger() {
   const stocks = await Stock.find({ stockCategory: 'food' }).select('-__v');
 
   // display that an event has triggered
-  console.log("Famine has struck the lands; the value of food has skyrocketed!");
+  // console.log("Famine has struck the lands; the value of food has skyrocketed!");
   // calculate a multiplier
   const multiplier = Math.round((Math.random() * 3 + 2));
 
@@ -78,7 +78,7 @@ async function prosperityTrigger() {
   const stocks = await Stock.find({ stockCategory: 'luxury' }).select('-__v');
 
   // display that an event has triggered
-  console.log("The kingdom prospers; the value of luxury goods has skyrocketed!");
+  // console.log("The kingdom prospers; the value of luxury goods has skyrocketed!");
   // calculate a multiplier
   const multiplier = Math.round((Math.random() * 3 + 2));
 
