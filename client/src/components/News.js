@@ -6,7 +6,7 @@ const News = ({ event }) => {
 
 
   return (
-    <section>
+    <section className='newsItem'>
           <p>{event.eventName}</p>
           <p>{event.eventDescription}</p>
           <p>Posted at: {event.date}</p>

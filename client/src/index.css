@@ -165,10 +165,6 @@ button {
   margin-bottom: 10px;
 }
 
-.loginPage {
-  min-height: 65vh;
-}
-
 .about {
   display: flex;
   flex-direction: column;
@@ -200,17 +196,22 @@ button {
 
 .dashboardStockInfo {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .dashboardCurrentMarket {
   margin: 20px auto;
 }
 
-/* .serfNews {
-  min-width: 350px;
-} */
+.serfNews {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
 
 .serfNews img {
   width: 50px;
@@ -219,6 +220,13 @@ button {
 .serfScroll {
   display: flex;
 
+}
+
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 /* .myStocks {
@@ -265,6 +273,12 @@ form {
   float: left;
 }
 
+.app {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 50px;
+}
+
 footer {
   display: flex;
   justify-items: center;
@@ -272,7 +286,9 @@ footer {
   font-size: 14px;
   padding: 5px;
   width: 100%;
-  margin-top: 75px;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -285,8 +301,8 @@ footer {
     margin-right: 0;
   }
 
-  .loginPage {
-    min-height: 50vh;
+  .app {
+    padding-bottom: 75px;
   }
 }
 
