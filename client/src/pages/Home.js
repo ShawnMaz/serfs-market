@@ -11,7 +11,7 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_STOCKS);
   const stockData = data?.stocks || [];
 
-  console.log(stockData)
+  // console.log(stockData)
   if (loading) {
     return <h2>LOADING...</h2>
   }
