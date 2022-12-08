@@ -53,7 +53,7 @@ nav ul {
 }
 
 nav ul li {
-  padding: 18px;
+  padding: 10px;
 }
 
 nav li:hover {
@@ -66,6 +66,7 @@ nav li:hover {
   background-color:var(--quarternary-color);
   border-radius: 8px;
 }
+
 
 button {
   background-color:var(--quarternary-color);

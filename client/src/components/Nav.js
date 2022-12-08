@@ -10,12 +10,23 @@ const Nav = () => {
     if (Auth.loggedIn()) {
       return (
         <ul>
-         <li className={location.pathname === '/dashboard' ? 'navActive' : ''}>
-            <Link to='/dashboard'>Dashboard</Link>
+          <li className={location.pathname === "/about" ? "navActive" : ""}>
+            <Link className="link-contain" to="/about">
+              About
+            </Link>
+          </li>
+          <li className={location.pathname === "/dashboard" ? "navActive" : ""}>
+            <Link className="link-contain" to="/dashboard">
+              Dashboard
+            </Link>
           </li>
           <li>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
+            <a
+              href="/"
+              className="link-contain navActive"
+              onClick={() => Auth.logout()}
+            >
               Logout
             </a>
           </li>
@@ -24,14 +35,20 @@ const Nav = () => {
     } else {
       return (
         <ul>
-          <li className={location.pathname === '/' ? 'navActive' : ''}>
-            <Link to='/'>Home</Link>
+          <li className={location.pathname === "/" ? "navActive" : ""}>
+            <Link className="link-contain" to="/">
+              Home
+            </Link>
           </li>
-          <li className={location.pathname === '/about' ? 'navActive' : ''}>
-            <Link to='/about'>About</Link>
+          <li className={location.pathname === "/about" ? "navActive" : ""}>
+            <Link className="link-contain" to="/about">
+              About
+            </Link>
           </li>
-          <li className={location.pathname === '/login' ? 'navActive' : ''}>
-            <Link to='/login'>Login</Link>
+          <li className={location.pathname === "/login" ? "navActive" : ""}>
+            <Link className="link-contain" to="/login">
+              Login
+            </Link>
           </li>
         </ul>
       );
@@ -40,18 +57,15 @@ const Nav = () => {
 
   return (
     <header>
-      <Link to='/'>
-        <div className='logoTitle'>
+      <Link to="/">
+        <div className="logoTitle">
           <span role="img" aria-label="serfsLogo">
-            <img
-              src={serfsLogo}
-              alt="Project logo for The Serf’s Market"
-            />
+            <img src={serfsLogo} alt="Project logo for The Serf’s Market" />
           </span>
           <h1>The Serf's Market</h1>
         </div>
       </Link>
-     
+
       <nav>{showNavigation()}</nav>
     </header>
   );
