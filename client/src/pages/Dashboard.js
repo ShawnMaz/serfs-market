@@ -69,10 +69,7 @@ const Dashboard = () => {
 
       <div className="dashboardCurrentMarket">
         <h2>Current Market</h2>
-        {allStocks &&
-          allStocks.map((stock) => (
-            <ManageStocks key={stock._id} stock={stock} />
-          ))}
+          {allStocks.length && <ManageStocks stock={allStocks} />}
       </div>
     </section>
   );
