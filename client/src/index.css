@@ -264,9 +264,15 @@ button {
   margin-bottom: 15px;
 }
 
-/* .myStocks {
-  min-width: 350px;
-} */
+.myStocks {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px 0px;
+  border-style: dashed;
+  padding: 10px 15px;
+  margin-top: 10px;
+  align-items: center;
+}
 
 .manageStock {
   display: flex;

@@ -31,7 +31,7 @@ const MyPortfolio= ({profile, stocks}) => {
 return (
     <section className='myPortfolio'>
         <ul>
-            {profile.portfolio ? profile.portfolio.map((ownedStock) => (
+            {profile.portfolio && profile.portfolio.length ? profile.portfolio.map((ownedStock) => (
                 <li key={ownedStock.stockId}>
                 Stock Name: {ownedStock.stockName} <br/>
                 Qty: {ownedStock.quantity} <br/>
