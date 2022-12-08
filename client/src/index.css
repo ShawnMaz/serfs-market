@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=MedievalSharp&display=swap');
+
+:root {
+  --primary-color: #723922;
+  --secondary-color: #E5E4DC; 
+  --tertiary-color: #fff;
+  --quarternary-color: #D21404;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'MedievalSharp', cursive;
+  color:var(--primary-color);
+  background-color:var(--secondary-color); 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: 'Carrois Gothic', sans-serif;
+  font-size: 18px;
+}
+
+code {
+  font-family: 'MedievalSharp', cursive;
+}
+
+header {
+  color:var(--secondary-color); 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color:var(--primary-color);
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+header a {
+  color:var(--secondary-color); 
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+
+nav ul li {
+  padding: 10px;
+}
+
+nav li:hover {
+  background-color:var(--quarternary-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navActive {
+  background-color:var(--quarternary-color);
+  border-radius: 8px;
+}
+
+
+button {
+  background-color:var(--quarternary-color);
+  color:var(--tertiary-color);
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'MedievalSharp', cursive;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 5px;
+  border: dashed;
+}
+
+.logoTitle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 300px;
+}
+
+.logoTitle img {
+  width: 100px;
+}
+
+.logoTitle h1 {
+  font-size: 1.5rem;
+} 
+
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ padding-top: 8px;
+ margin-bottom: 10px;
+}
+
+.marketPlace {
+  width: 46%;
+  min-width: 300px;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marketPlace h2 {
+  padding-bottom: 8px;
+}
+
+.stockItems {
+  width: 46%;
+  min-width: 300px;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stockItems ul {
+  padding-left: 20px;
+}
+
+.stockItems h2 {
+  padding-bottom: 8px;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signUpForm div form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signUpForm input {
+  padding: 20px 40px;
+  border-radius: 8px;
+  background-color: var(--tertiary-color);
+  margin: 2px;
+}
+
+.signUpForm h2 {
+  margin-bottom: 10px;
+}
+
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column;
+  align-items: center; */
+  margin: 8px;
+  width: 100%;
+}
+
+.about-contain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+#about-pic {
+  width: 50%;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: right;
+}
+
+.desc-contain {
+  width: 50%;
+}
+
+#description {
+  width: 80%;
+  padding: 100px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.about h2 {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 50px;
+}
+
+.about img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.dashboardPage {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dashboardUserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+}
+
+.dashboardStockInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dashboardCurrentMarket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  width: 33%;
+}
+
+.serfNews {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  width: 33%;
+}
+
+.serfNews img {
+  width: 50px;
+}
+
+.serfScroll {
+  display: flex;
+
+}
+
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.myStocks {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px 0px;
+  border-style: dashed;
+  padding: 10px 15px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.manageStock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.manageStock input {
+  padding: 20px 40px;
+  border-radius: 8px;
+  text-align: center;
+
+}
+
+.manageStockButton {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.manageStockButton button {
+  background-color:var(--primary-color); 
+}
+
+.myPortfolio {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Carrois Gothic', sans-serif;
+}
+
+.myPortfolio ul li {
+  margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+footer {
+  display: flex;
+  justify-items: center;
+  font-family: 'Carrois Gothic', sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1160px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ #about-pic {
+  width: 100%;
+  justify-content: center;
+ }
+
+ .desc-contain {
+  width:100%;
+ }
+
+ #description {
+  width: 100%;
+ }
+
+ .serfNews{
+  width: 100%;
+ }
+
+ .dashboardCurrentMarket{
+  width: 100%;
+ }
+
+ .dashboardUserInfo{
+  width: 100%;
+ }
+  nav ul {
+    margin-right: 0;
+  }
+
+  .app {
+    padding-bottom: 75px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    margin-right: 0;
+  }
+
+  #about-pic{
+    width: 80%;
+  }
+
+  .desc-contain {
+    width: 100%;
+   }
+  .app {
+    padding-bottom: 75px;
+  }
+}
+
