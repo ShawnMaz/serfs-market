@@ -35,7 +35,7 @@ return (
                 <li key={ownedStock.stockId}>
                 Stock Name: {ownedStock.stockName} <br/>
                 Qty: {ownedStock.quantity} <br/>
-                Current Worth: {ownedStock.quantity * findStockPrice(ownedStock.stockId)} ({ownedStock.quantity} at value of {findStockPrice(ownedStock.stockId)})
+                Current Worth: ${ownedStock.quantity * findStockPrice(ownedStock.stockId)} ({ownedStock.quantity} at value of ${findStockPrice(ownedStock.stockId)})
                 </li>
             )):<p>You're empty-handed!</p>}
         </ul>
