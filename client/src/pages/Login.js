@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import arrow from '../assets/images/arrow.jpg';
 
 import '../index.css';
 
