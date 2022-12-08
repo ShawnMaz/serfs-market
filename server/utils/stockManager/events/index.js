@@ -22,7 +22,7 @@ async function warTrigger() {
   }
 
   // pop entries off table if exceeding max length of 10
-  const bulletin = await News.find();
+  const bulletin = await News.find().sort('-date');
   if (bulletin && bulletin.length > 9) {
     for (let i = 0; i < bulletin.length - 8; i++) {
       bulletin.pop();
@@ -57,7 +57,7 @@ async function famineTrigger() {
   }
 
   // pop entries off table if exceeding max length of 10
-  const bulletin = await News.find();
+  const bulletin = await News.find().sort('-date');
   if (bulletin && bulletin.length > 9) {
     for (let i = 0; i < bulletin.length - 8; i++) {
       bulletin.pop();

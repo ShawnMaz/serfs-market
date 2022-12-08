@@ -82,6 +82,7 @@ async function seedStock() {
 
   // notify the user that our seeds have been planted
   console.log("Stock database seeded!");
+  db.close();
 }
 
 // call our function

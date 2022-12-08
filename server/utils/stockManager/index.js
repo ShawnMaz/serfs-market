@@ -1,6 +1,6 @@
 // main file defining the stock manager on the backend
 // import our models
-const { Stock } = require('../../models');
+const { Stock, News } = require('../../models');
 // import our events
 const events = require('./events'); // loaded as array
 // global variable that stores likelihood of an event triggering
@@ -38,7 +38,8 @@ async function randomizeStock() {
   // loop over each stock and modify their price
   for (const stock of stocks) { // this format allows using async
     // generate a random amount to change it by
-    const change = (Math.random() * 30) - 15; // positive and negative values
+    const changeMult = Math.random() * 3;
+    const change = ((Math.random() * 30) - 15) * changeMult; // positive and negative values
     let newPrice = Math.round(stock.stockPrice + change);
     // clamp to a minimum price of 1
     if (newPrice < 0 ) {
@@ -51,6 +52,25 @@ async function randomizeStock() {
       { stockPrice: newPrice },
       { new: true }
     );
+
+    // check for a news bulletin update if change is significant
+    if (change > Math.abs(20)) {
+      // refresh old bulletin
+      const bulletin = await News.find().sort('-date');
+      if (bulletin && bulletin.length > 9) {
+        for (let i = 0; i < bulletin.length - 8; i++) {
+          bulletin.pop();
+        }
+        const deletedBulletin = await News.deleteMany();
+        const newBulletin = await News.insertMany(bulletin);
+      }
+
+      // push news event to database
+      const news = await News.create({
+        eventName: "Signifcant market changes...",
+        eventDescription: `The value of ${stock.stockName} has shifted by ${Math.round(change) * stock.multiplier}.`
+      });
+    }
   }
 }
 
