@@ -1,17 +1,19 @@
-# **_Serf’s-Market_**
+# The Serf's Market
 
 ## **_Description_**
 
 The Serf’s Market is a full-stack game application that helps you increase your financial literacy in a fun and unique way. The game is a fictionalized & centralized online “stock” market that changes every hour, where users can create their own Peasantly Portfolio and compete against others to be the most bountiful member of the kingdom’s sub-working class. Buy stock in arrows, watch their value crash (or skyrocket in the Indo-Briton clash of 1503), and come back later to cash out big!
 
-## **_Table of Contents_**
-
-- [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Installation](#installation)
-- [Link URL to GitHub Repository](#link-url-to-github-repository)
-- [Link URL of deployed application](#link-url-of-deployed-application)
-- [Credits](#credits) 
+## Table of Contents
+- [The Serf's Market](#the-serfs-market)
+  - [**_Description_**](#description)
+  - [Table of Contents](#table-of-contents)
+  - [**_Technologies Used_**](#technologies-used)
+  - [**_Usage_**](#usage)
+  - [**_Installation_**](#installation)
+  - [**_Credits_**](#credits)
+  - [**_License_**](#license)
+ 
 
 ## **_Technologies Used_**
 Project is created using:
@@ -53,6 +55,6 @@ Here are some guidelines for installing the project on your local machine:
 @ShawnMaz
 @tonymengt
 
-## License
+## **_License_**
 
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
