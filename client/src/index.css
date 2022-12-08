@@ -68,7 +68,7 @@ nav li:hover {
 }
 
 
-button {
+.btn {
   background-color:var(--quarternary-color);
   color:var(--tertiary-color);
   padding: 20px 40px;
@@ -282,28 +282,95 @@ button {
   align-items: center;
 }
 
+.category-contain{
+  border: solid;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+.categories {
+  font-size: 25px;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.weap-contain {
+  margin: 0px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.lux-contain {
+  margin: 0px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.food-contain {
+  margin: 0px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stock-desc{
+  width: 50%;
+  padding: 0px 5px;
+}
+
+.stock-name{
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .manageStock {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column;
+  align-items: center; */
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 5px;
   margin-bottom: 15px;
+  width: 50%;
 }
 
 .manageStock input {
-  padding: 20px 40px;
+  /* padding: 5px; */
   border-radius: 8px;
   text-align: center;
-
+  width: 50%;
+  height: 20%;
+  padding: 15px 0px;
+}
+.manageStock span {
+  /* padding: 5px; */
+ margin-top: 7px;
 }
 
 .manageStockButton {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .manageStockButton button {
   background-color:var(--primary-color); 
+  text-align: center;
+  width: 40%;
+  /* background-color:var(--quarternary-color); */
+  color:var(--tertiary-color);
+  text-align: center;
+  /* text-decoration: none; */
+  font-size: 16px;
+  font-family: 'MedievalSharp', cursive;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 5px;
+  border: dashed;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
 }
 
 .myPortfolio {
