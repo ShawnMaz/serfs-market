@@ -1,29 +1,24 @@
-import React, {useState} from "react";
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_USER } from "../utils/queries";
+import React from "react";
 
-const MyPortfolio= () => {
-
-    const { loading, data } = useQuery(QUERY_USER)
-    const profile = data?.user || [];
-
-  
-    if(loading) {
-        <h2>LOADING...</h2>
+const MyPortfolio= ({profile, stocks}) => {
+    const findStockPrice = (id) => {
+        const index = stocks.findIndex(index => index._id === id);
+        if (stocks[index]) {
+            return stocks[index].stockPrice * stocks[index].multiplier;
+        }
     }
+
 return (
-    <section>
-        <h3>{profile.username}</h3>
-        <p>{profile.money}</p>
-        <p>Portfolio</p>
-            <ul>
-                {profile && profile.portfolio.map((stocks) => (
-                    <li key={stocks._id}>
-                    {stocks.stockId}
-                    {stocks.quantity}
-                    </li>
-                ))}
-            </ul>
+    <section className='myPortfolio'>
+        <ul>
+            {profile.portfolio && profile.portfolio.length ? profile.portfolio.map((ownedStock) => (
+                <li key={ownedStock.stockId}>
+                Stock Name: {ownedStock.stockName} <br/>
+                Qty: {ownedStock.quantity} <br/>
+                Current Worth: ${ownedStock.quantity * findStockPrice(ownedStock.stockId)} ({ownedStock.quantity} at value of ${findStockPrice(ownedStock.stockId)})
+                </li>
+            )):<p>You're empty-handed!</p>}
+        </ul>
     </section>
 )
 }

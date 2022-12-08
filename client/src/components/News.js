@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
-const News = () => {
+const News = ({ event, index }) => {
 
 
-    return (
-        <section>
-            <p>event examples</p>
-        </section>
-    )
-}
+  return (
+    <section className='newsItem' style={{opacity: 1 - (index / 10)}}>
+          <p>{event.eventName}</p>
+          <p>{event.eventDescription}</p>
+          <p>Posted at: {event.date}</p>
+    </section>
+  );
+};
 
 export default News;

@@ -16,6 +16,7 @@ const typeDefs = gql`
     _id: ID
     stockId: ID
     quantity: Int
+    stockName: String
   }
 
   type Stock {
@@ -27,11 +28,20 @@ const typeDefs = gql`
     multiplier: Float
   }
 
+  type News {
+    _id: ID
+    eventName: String
+    eventDescription: String
+    date: String
+  }
+
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     stocks: [Stock]
     stock(stockId: ID!): Stock
+    news: [News]
   }
 
   type Auth {

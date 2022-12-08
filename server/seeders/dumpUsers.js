@@ -8,6 +8,7 @@ const { User } = require('../models');
 async function deleteAllUsers() {
   const deletedUsers = await User.deleteMany();
   console.log(deletedUsers);
+  db.close();
 }
 
 deleteAllUsers();

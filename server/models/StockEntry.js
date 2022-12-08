@@ -11,6 +11,10 @@ const stockEntrySchema = new Schema(
             type: Number,
             required:true,
             set:num => Math.round(num)
+        },
+        stockName:{
+            type: String,
+            required:true
         }
     }
 );
