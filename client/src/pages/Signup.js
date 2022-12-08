@@ -64,7 +64,7 @@ const Signup = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <button type='submit'>
+          <button className="btn" type='submit'>
             Join Now
           </button>
           {error && <div>Sign Up Failed</div>}

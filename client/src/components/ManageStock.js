@@ -1,83 +1,36 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { BUY_STOCK, SELL_STOCK } from "../utils/mutations";
+import React from "react";
+
+import Weapon from "./Weapon";
+import Food from "./Food";
+import Luxury from "./Luxury";
 
 const ManageStocks= ({stock}) => {
-    // functions to clear useState
-    function removeSaleError() {
-      setSaleError(false);
-    }
-    function removeBuyError() {
-      setBuyError(false);
-    }
-    function removeSoldMsg() {
-      setSoldStock(false);
-    }
-    function removeBoughtMsg() {
-      setBoughtStock(false);
-    }
 
-    const [ quantity, setQuantity ] = useState(1)
-    const [ buyError, setBuyError ] = useState(false);
-    const [ boughtStock, setBoughtStock ] = useState(false);
-    const [ purchaseStock ] = useMutation(BUY_STOCK)
-    const buyClick = async (e) => {
-      const id = e.target.dataset.id
-        try {
-          await purchaseStock({
-            variables: { stockId: id, qty: parseInt(quantity) }
-          }); 
-          setBuyError(false);
-          setBoughtStock(true);
-          setTimeout(removeBoughtMsg, 1000)
-        } catch (e) {
-          console.log(e);
-          setBuyError(true);
-          setTimeout(removeBuyError, 1000)
-        }
-      }
+    const weapons = stock.filter(weapons => weapons.stockCategory === "weaponry" )
+    const foods = stock.filter(weapons => weapons.stockCategory === "food" )
+    const luxuries = stock.filter(weapons => weapons.stockCategory === "luxury" )
 
-    const [ saleError, setSaleError ] = useState(false);
-    const [ soldStock, setSoldStock ] = useState(false);
-    const [ sellStock ] = useMutation(SELL_STOCK)
-    const sellClick = async (e) => {
-      const id = e.target.dataset.id
-        try {
-          await sellStock({
-            variables: { stockId: id, qty: parseInt(quantity) }
-          });
-          setSaleError(false);
-          setSoldStock(true);
-          setTimeout(removeSoldMsg, 1000)
-        } catch (e) {
-          console.log(e);
-          setSaleError(true);
-          setTimeout(removeSaleError, 1000)
-        }
-      }
 
 return (
     <section>
-        <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice * stock.multiplier}, {stock.stockDescription}</div>
-        <div className='manageStock'>
-          <span>Quantity</span>
-          <input
-            type='number'
-            placeholder='1'
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          {buyError && <p>Can't buy stock!</p>}
-          {saleError && <p>Can't sell stock!</p>}
-          {boughtStock && <p>Stock purchased!</p>}
-          {soldStock && <p>Stock sold!</p>}
-          <div className='manageStockButton'>
-            <button onClick={buyClick} data-id={stock._id}>Buy</button>
-            <button onClick={sellClick} data-id={stock._id}>Sell</button>
-          </div>
-        </div>
-        <div>
-        </div>
+      <div className="category-contain">
+      <h3 className="categories">Weapons</h3>
+      {weapons.length && weapons.map(weapon => (
+        <Weapon key={weapon._id} weapon={weapon} />
+      ))}
+      </div>
+      <div className="category-contain">
+      <h3 className="categories">Food</h3>
+      {foods.length && foods.map(food => (
+        <Food key={food._id} food={food} />
+      ))}
+      </div>
+      <div className="category-contain">
+      <h3 className="categories">Luxury</h3>
+      {luxuries.length && luxuries.map(luxury => (
+        <Luxury key={luxury._id} luxury={luxury} />
+      ))}
+      </div>
     </section>
 )
 }
