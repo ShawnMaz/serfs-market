@@ -51,7 +51,7 @@ async function randomizeStock() {
   for (const stock of stocks) { // this format allows using async
     // generate a random amount to change it by
     const changeMult = Math.random() * 3;
-    const change = ((Math.random() * 30) - 15) * changeMult; // positive and negative values
+    let change = ((Math.random() * 30) - 15) * changeMult; // positive and negative values
     let newPrice = Math.round(stock.stockPrice + change);
     // clamp to a minimum price of 1
     if (newPrice < 0 ) {
