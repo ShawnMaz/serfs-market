@@ -1,97 +1,81 @@
-import React, { useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import Auth from '../utils/auth';
-import News from '../components/News';
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_STOCKS, QUERY_USER } from "../utils/queries";
-import { useStockContext } from '../utils/GlobalState';
-import { UPDATE_STOCK, UPDATE_STOCK_ENTRY } from '../utils/actions';
-import serfsLogo from '../assets/images/serfsLogo.jpg';
-import scroll from '../assets/images/scroll.jpg';
-import ManageStocks from '../components/ManageStock';
-import MyPortfolio from '../components/MyStocks';
+import React from "react";
+import { useParams, Navigate } from "react-router-dom";
+import Auth from "../utils/auth";
+import News from "../components/News";
+import { useQuery } from "@apollo/client";
+import {
+  QUERY_ME,
+  QUERY_STOCKS,
+  QUERY_USER,
+  QUERY_NEWS,
+} from "../utils/queries";
+import scroll from "../assets/images/scroll.jpg";
+import ManageStocks from "../components/ManageStock";
+import MyPortfolio from "../components/MyStocks";
 
 const Dashboard = () => {
+  const { username: userParam } = useParams();
 
-    // const [state, dispatch] = useStockContext();
-    
-    // const { stocks, stockEntry } = state;
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
 
-    // const buyStock = stockId => {
-    //     const stock = stockEntry.find((choice) => choice.stockId === stockId)
-    //     if(stock){
-    //         dispatch ({
-    //             type: UPDATE_STOCK_ENTRY,
-    //             stockId: stockId,
-    //             quantity: parseInt(stockEntry.quantity) + 1
-    //         })
+  const user = data?.me || data?.user || {};
 
-    //     }
-    //     console.log (parseInt(stockEntry[0].quantity) + 1)
-    //     console.log(stock)
-    // }
-    
+  const { data: market } = useQuery(QUERY_STOCKS);
+  const allStocks = market?.stocks || [];
 
-    const { loading, data } = useQuery(QUERY_STOCKS)
-    const allStocks = data?.stocks || [];
+  const { data: events } = useQuery(QUERY_NEWS);
+  const newsEvents = events?.news || [];
 
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/dashboard" />;
+  }
 
-    if(loading) {
-        <h2>LOADING...</h2>
-    }
-    return (
-        <section>
-            <div>
-                <span role='img' aria-label='serfsLogo'>
-                    <img src={serfsLogo} style={{ width: '25%'}} alt='Shield' />
-                </span>
-            </div>
-            <div>
-            <h2>
-                    Current Market
-                </h2>
+  if (loading) {
+    <h2>LOADING...</h2>;
+  }
+  return (
+    <section className="dashboardPage">
+      <div className="serfNews">
+        <div className="serfScroll">
+          <h2>Serf’s News</h2>
+          <span role="img" aria-label="scrollPaper">
+            <img src={scroll} alt="Old yellow scroll paper." />
+          </span>
+        </div>
+        {newsEvents.length ? (
+          newsEvents.map((event, index) => (
+            <News key={event._id} event={event} index={index} />
+          ))
+        ) : (
+          <p>No Fresh News</p>
+        )}
+      </div>
 
-                {allStocks && allStocks.map((stock) => (
-                    <ManageStocks key={stock._id} stock = {stock} />
-                ))}
-            </div>
-            
-            <div>
-                <h2>
-                    My Stocks
-                </h2>
+      <div className="dashboardUserInfo">
+        <h1>Name: {user.username}</h1>
+        <br></br>
+        <h1>Balance: ${user.money}</h1>
+        <br></br>
+        <div className="dashboardStockInfo">
+        <div className="myStocks">
+          <h2>My Stocks</h2>
+          <MyPortfolio profile={user} stocks={allStocks} />
+        </div>
+      </div>
+      </div>
+      
 
-                {/* <MyPortfolio /> */}
-
-                {/* <div>
-                    <ul>
-                        {stockEntry.map((eachStock) => (
-                            <li 
-                                key={eachStock.stockId}
-                            >
-                                {eachStock.quantity}
-                                <button onClick={() => {buyStock(eachStock.stockId)}}>Add</button>
-                            </li>
-
-                        ))}
-                    </ul>
-
-                </div> */}
-            </div>
-            <div>
-                <h2>
-                    Serf’s News
-                </h2>
-                    <span role='img' aria-label='market'>
-                        <img src={scroll} style={{ width: '25%'}} alt='Old yellow scroll paper.' />
-                    </span>
-
-                <News />
-            </div>
-
-            test
-        </section>
-    )
-}
+      <div className="dashboardCurrentMarket">
+        <h2>Current Market</h2>
+        {allStocks &&
+          allStocks.map((stock) => (
+            <ManageStocks key={stock._id} stock={stock} />
+          ))}
+      </div>
+    </section>
+  );
+};
 
 export default Dashboard;

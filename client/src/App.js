@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import { StockProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
@@ -34,22 +35,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+setInterval(client.resetStore, 1000 * 60);
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className='app'>
           <StockProvider>
-          <Nav />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
-          </div>
-          <Footer />
+            <Nav />
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/dashboard">
+                  <Route path=":username" element={<Dashboard />} />
+                  <Route path="" element={<Dashboard />} />
+                </Route> 
+              </Routes>
+            </div>
+            <Footer />
           </StockProvider>
         </div>
       </Router>

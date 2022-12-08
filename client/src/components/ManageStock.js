@@ -1,81 +1,85 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_STOCKS, QUERY_USER } from "../utils/queries";
+import { useMutation } from "@apollo/client";
 import { BUY_STOCK, SELL_STOCK } from "../utils/mutations";
 
-const ManageStocks = ({ stock }) => {
-  const [quantity, setQuantity] = useState(1);
-  console.log(stock);
-
-  // , {
-  //   refetchQueries: [{query:QUERY_USER}]
-  // }
-  const [purchaseStock] = useMutation(BUY_STOCK);
-  const buyClick = async (e) => {
-    const id = e.target.dataset.id;
-    console.log(e.target.dataset.id);
-    try {
-      await purchaseStock({
-        variables: { stockId: id, qty: parseInt(quantity) },
-      });
-    } catch (e) {
-      console.log(e);
+const ManageStocks= ({stock}) => {
+    // functions to clear useState
+    function removeSaleError() {
+      setSaleError(false);
     }
-  };
-
-  const [sellStock] = useMutation(SELL_STOCK);
-  const sellClick = async (e) => {
-    const id = e.target.dataset.id;
-    console.log(e.target.dataset.id);
-    try {
-      await sellStock({
-        variables: { stockId: id, qty: parseInt(quantity) },
-      });
-    } catch (e) {
-      console.log(e);
+    function removeBuyError() {
+      setBuyError(false);
     }
-  };
+    function removeSoldMsg() {
+      setSoldStock(false);
+    }
+    function removeBoughtMsg() {
+      setBoughtStock(false);
+    }
 
-  return (
+    const [ quantity, setQuantity ] = useState(1)
+    const [ buyError, setBuyError ] = useState(false);
+    const [ boughtStock, setBoughtStock ] = useState(false);
+    const [ purchaseStock ] = useMutation(BUY_STOCK)
+    const buyClick = async (e) => {
+      const id = e.target.dataset.id
+        try {
+          await purchaseStock({
+            variables: { stockId: id, qty: parseInt(quantity) }
+          }); 
+          setBuyError(false);
+          setBoughtStock(true);
+          setTimeout(removeBoughtMsg, 1000)
+        } catch (e) {
+          console.log(e);
+          setBuyError(true);
+          setTimeout(removeBuyError, 1000)
+        }
+      }
+
+    const [ saleError, setSaleError ] = useState(false);
+    const [ soldStock, setSoldStock ] = useState(false);
+    const [ sellStock ] = useMutation(SELL_STOCK)
+    const sellClick = async (e) => {
+      const id = e.target.dataset.id
+        try {
+          await sellStock({
+            variables: { stockId: id, qty: parseInt(quantity) }
+          });
+          setSaleError(false);
+          setSoldStock(true);
+          setTimeout(removeSoldMsg, 1000)
+        } catch (e) {
+          console.log(e);
+          setSaleError(true);
+          setTimeout(removeSaleError, 1000)
+        }
+      }
+
+return (
     <section>
-      {/* <h2>
-                Current Stocks
-            </h2>
-
-            <ul>
-                {allStocks.map((stock) => (
-                    <li key={stock._id} >
-                    {stock.stockName}
-                    {stock.stockPrice}
-                    {stock.stockDescription}
-                    <input value={quantity} onChange={(e)=> setQuantity(e.target.value)}/>
-                    <button onClick={handleClick} data-id={stock._id}>Buy</button>
-                    </li>
-                ))}
-            </ul> */}
-
-
-      <div>
-        {stock.stockCategory}, {stock.stockName}, ${stock.stockPrice},{" "}
-        {stock.stockDescription}
-      </div>
-      <div>
-        <span>Qty:</span>
-        <input
-          type="number"
-          placeholder=""
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <button onClick={buyClick} data-id={stock._id}>
-          Buy
-        </button>
-        <button onClick={sellClick} data-id={stock._id}>
-          Sell
-        </button>
-      </div>
+        <div>{stock.stockCategory}, {stock.stockName}, ${stock.stockPrice * stock.multiplier}, {stock.stockDescription}</div>
+        <div className='manageStock'>
+          <span>Quantity</span>
+          <input
+            type='number'
+            placeholder='1'
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          {buyError && <p>Can't buy stock!</p>}
+          {saleError && <p>Can't sell stock!</p>}
+          {boughtStock && <p>Stock purchased!</p>}
+          {soldStock && <p>Stock sold!</p>}
+          <div className='manageStockButton'>
+            <button onClick={buyClick} data-id={stock._id}>Buy</button>
+            <button onClick={sellClick} data-id={stock._id}>Sell</button>
+          </div>
+        </div>
+        <div>
+        </div>
     </section>
-  );
-};
+)
+}
 
 export default ManageStocks;
