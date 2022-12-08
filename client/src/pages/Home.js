@@ -1,9 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import Signup from '../components/Signup';
 import market from '../assets/images/market.jpg';
 import { QUERY_STOCKS } from '../utils/queries';
-import Auth from '../utils/auth';
+
 
 
 
@@ -39,9 +38,6 @@ const Home = () => {
             ))}
           </ul>
         </div>
-      </div>
-      <div>
-        {!Auth.loggedIn() &&  <Signup />}
       </div>
     </main>
   )  

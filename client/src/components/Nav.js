@@ -24,7 +24,7 @@ const Nav = () => {
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a
               href="/"
-              className="link-contain navActive"
+              className="link-contain"
               onClick={() => Auth.logout()}
             >
               Logout
@@ -48,6 +48,11 @@ const Nav = () => {
           <li className={location.pathname === "/login" ? "navActive" : ""}>
             <Link className="link-contain" to="/login">
               Login
+            </Link>
+          </li>
+          <li className={location.pathname === "/signup" ? "navActive" : ""}>
+            <Link className="link-contain" to="/signup">
+              signup
             </Link>
           </li>
         </ul>

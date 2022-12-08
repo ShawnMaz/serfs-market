@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import { StockProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/About" element={<About />} />
                 <Route path="/Login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard">
                   <Route path=":username" element={<Dashboard />} />
                   <Route path="" element={<Dashboard />} />
