@@ -61,7 +61,7 @@ const Dashboard = () => {
     <section className='dashboardPage'>
       <div className='dashboardUserInfo'>
         <h1>Name: {user.username}</h1><br></br>
-        <h1>Balance: {user.money}</h1><br></br>
+        <h1>Balance: ${user.money}</h1><br></br>
       </div>  
       <div className='dashboardStockInfo'> 
         <div className='myStocks'>
