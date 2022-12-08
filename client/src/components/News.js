@@ -1,16 +1,13 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { QUERY_NEWS } from "../utils/queries";
+import React from "react";
 
-const News = ({ event }) => {
+const News = ({ event, index }) => {
 
 
   return (
-    <section className='newsItem'>
+    <section className='newsItem' style={{opacity: 1 - (index / 10)}}>
           <p>{event.eventName}</p>
           <p>{event.eventDescription}</p>
           <p>Posted at: {event.date}</p>
-          <p>---</p>
     </section>
   );
 };

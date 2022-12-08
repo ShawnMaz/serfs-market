@@ -88,8 +88,8 @@ const Dashboard = () => {
               <img src={scroll} alt="Old yellow scroll paper." />
             </span>
           </div>
-            {newsEvents.length ? newsEvents.map((event) => (
-              <News key={event._id} event={event} />
+            {newsEvents.length ? newsEvents.map((event, index) => (
+              <News key={event._id} event={event} index={index} />
             )):<p>No Fresh News</p>}
         </div>
       </div>

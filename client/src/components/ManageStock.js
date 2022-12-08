@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { BUY_STOCK, SELL_STOCK } from "../utils/mutations";
 
 const ManageStocks= ({stock}) => {
@@ -36,7 +36,7 @@ const ManageStocks= ({stock}) => {
         } catch (e) {
           console.log(e);
           setBuyError(true);
-          setTimeout(setBuyError, 1000)
+          setTimeout(removeBuyError, 1000)
         }
       }
 
@@ -55,7 +55,7 @@ const ManageStocks= ({stock}) => {
         } catch (e) {
           console.log(e);
           setSaleError(true);
-          setTimeout(setSaleError, 1000)
+          setTimeout(removeSaleError, 1000)
         }
       }
 
