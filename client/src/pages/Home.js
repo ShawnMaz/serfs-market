@@ -33,7 +33,7 @@ const Home = () => {
             {stockData.map((stocks) => (
               <li key={stocks._id}>
                 {stocks.stockName}<br/>
-                {stocks.stockPrice * stocks.multiplier} <br/>
+                ${stocks.stockPrice * stocks.multiplier} <br/>
                 {stocks.stockDescription}
               </li>
             ))}
