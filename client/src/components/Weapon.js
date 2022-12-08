@@ -3,7 +3,6 @@ import { useMutation } from "@apollo/client";
 import { BUY_STOCK, SELL_STOCK } from "../utils/mutations";
 
 const Weapon = ({ weapon }) => {
-  console.log(weapon);
 
   function removeSaleError() {
     setSaleError(false);
