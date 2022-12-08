@@ -52,7 +52,7 @@ const Nav = () => {
           </li>
           <li className={location.pathname === "/signup" ? "navActive" : ""}>
             <Link className="link-contain" to="/signup">
-              signup
+              Sign Up
             </Link>
           </li>
         </ul>
